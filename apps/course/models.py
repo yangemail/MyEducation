@@ -19,12 +19,15 @@ class Course(models.Model):
         verbose_name = '课程'
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.name
+
 
 class Lesson(models.Model):
     name = models.CharField(max_length=100, verbose_name='章节名称')
     course = models.ForeignKey(Course, on_delete=models.SET_DEFAULT, default=0, verbose_name='课程外键')
-    created_tiem = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
-    last_modifed_time = models.DateTimeField(auto_now=True, verbose_name='最后修改时间')
+    created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    last_modified_time = models.DateTimeField(auto_now=True, verbose_name='最后修改时间')
 
     class Meta:
         verbose_name = '章节'
@@ -35,7 +38,7 @@ class Video(models.Model):
     name = models.CharField(max_length=100, verbose_name='视频名称')
     lesson = models.ForeignKey(Lesson, on_delete=models.SET_DEFAULT, default=0, verbose_name='章节外键')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
-    last_modifed_time = models.DateTimeField(auto_now=True, verbose_name='最后修改时间')
+    last_modified_time = models.DateTimeField(auto_now=True, verbose_name='最后修改时间')
 
     class Meta:
         verbose_name = '视频'

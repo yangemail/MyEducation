@@ -5,7 +5,7 @@ class City(models.Model):
     name = models.CharField(max_length=20, verbose_name='城市')
     desc = models.CharField(max_length=200, verbose_name='描述')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
-    last_modifed_time = models.DateTimeField(auto_now=True, verbose_name='最后修改时间')
+    last_modified_time = models.DateTimeField(auto_now=True, verbose_name='最后修改时间')
 
     class Meta:
         verbose_name = '城市'
