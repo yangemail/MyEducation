@@ -40,14 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Apps
+    # apps
     'user.apps.UserConfig',
     'course.apps.CourseConfig',
     'organization.apps.OrganizationConfig',
     'operation.apps.OperationConfig',
-    # Extra_apps
+    # extra_apps
     'xadmin',
     'crispy_forms',
+    'captcha',
 ]
 
 # 用户自定义model
@@ -144,3 +145,10 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTHENTICATION_BACKENDS = ('user.views.CustomizedBackend',)
+
+EMAIL_HOST = "smtp.sina.cn"
+EMAIL_PORT = 25
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
+EMAIL_USE_TLS= False
+EMAIL_FROM = ""
