@@ -1,0 +1,7 @@
+解决方法(已确认):
+修改其原文件
+打开paginator.py文件
+在文件最后添加
+    def __iter__(self):
+        for i in self.object_list:
+            yield i

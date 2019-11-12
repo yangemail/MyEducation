@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'captcha',
+    'pure_pagination',
 ]
 
 # 用户自定义model
@@ -78,6 +79,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Customized
+                'django.template.context_processors.media', # use "media" folder in Django 2
             ],
         },
     },
@@ -152,3 +155,31 @@ EMAIL_HOST_USER = ""
 EMAIL_HOST_PASSWORD = ""
 EMAIL_USE_TLS= False
 EMAIL_FROM = ""
+
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 10,
+    # 显示当前页面的相邻的页面数
+    'MARGIN_PAGES_DISPLAYED': 2,
+    # 显示的第一页和最后一页相邻的页数
+    'SHOW_FIRST_PAGE_WHEN_INVALID': True,
+    # 无效页面时，显示第一页而不是404页面
+}
+
+# 自定义日志输出信息
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console':{
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'DEBUG'
+        }
+    }
+}
