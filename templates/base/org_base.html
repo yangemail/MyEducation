@@ -29,12 +29,13 @@
                             <div class="personal">
                                 <dl class="user fr">
                                     <dd>{{ user.username }}<img class="down fr"
-                                                                src="{% static "/static/images/top_down.png" %}"/></dd>
-                                    <dt><img width="20" height="20" src="{{ MEDIA_URL }}{{ request.user.image }}"/></dt>
+                                                                src="{% static "images/top_down.png" %}"/></dd>
+                                    <dt><img width="20" height="20" src="{{ MEDIA_URL }}{{ request.user.avatar }}"/>
+                                    </dt>
                                 </dl>
                                 <div class="userdetail">
                                     <dl>
-                                        <dt><img width="80" height="80" src="{{ MEDIA_URL }}{{ request.user.image }}"/>
+                                        <dt><img width="80" height="80" src="{{ MEDIA_URL }}{{ request.user.avatar }}"/>
                                         </dt>
                                         <dd>
                                             <h2>{{ request.user.nick_name }}</h2>
@@ -153,8 +154,7 @@
         $.ajax({
             cache: false,
             type: "POST",
-            {#url: "{% url "org:add_fav" %}",#}
-            url: "#",
+            url: "{% url "org:add_fav" %}",
             data: {'fav_id': fav_id, 'fav_type': fav_type},
             async: true,
             beforeSend: function (xhr, settings) {

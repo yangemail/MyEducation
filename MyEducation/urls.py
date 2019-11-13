@@ -29,6 +29,8 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('xadmin/', xadmin.site.urls),
     path('captcha/', include('captcha.urls')),
+
+    # 配置上传文件的访问处理函数
     re_path(r'media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),  # 显示media下面的图片
 
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
@@ -43,7 +45,10 @@ urlpatterns = [
     path('modify_pwd/', ModifyPwdView.as_view(), name='modify_pwd'),
     path('logout/', LogoutView.as_view(), name='logout'),
 
-    # 课程机构 url 配置
+    # 机构 url 配置
     # path('org_list/', OrgView.as_view(), name='org_list')
-    path('org/', include(('organization.urls', 'organization'), namespace='org'))
+    path('org/', include(('organization.urls', 'organization'), namespace='org')),
+
+    # 课程 url 配置
+    path('course/', include(('course.urls', 'course'), namespace='course')),
 ]

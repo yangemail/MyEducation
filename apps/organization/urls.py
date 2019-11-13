@@ -2,10 +2,9 @@
 # -*- coding:utf-8 -*-
 # author: Yang Zhang
 # site:
-from django.urls import path, include, re_path
-from django.conf.urls import url, include
+from django.urls import path
 
-from .views import OrgView, AddUserAskView, OrgHomeView, OrgCourseView, OrgDescView, OrgTeacherView
+from .views import OrgView, AddUserAskView, OrgHomeView, OrgCourseView, OrgDescView, OrgTeacherView, AddFavView
 
 urlpatterns = [
     # 课程机构列表页
@@ -19,4 +18,7 @@ urlpatterns = [
     path('desc/<int:org_id>/', OrgDescView.as_view(), name='org_desc'),
     # re_path('^teacher/(?P<org_id>\d+)/$', OrgTeacherView.as_view(), name='org_teacher'),
     path('teacher/<int:org_id>/', OrgTeacherView.as_view(), name='org_teacher'),
+
+    # 机构收藏
+    path('add_fav/', AddFavView.as_view(), name='add_fav')
 ]
