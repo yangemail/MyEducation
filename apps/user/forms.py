@@ -5,6 +5,7 @@
 
 from django import forms
 from captcha.fields import CaptchaField
+from user.models import UserProfile
 
 
 class LoginForm(forms.Form):
@@ -25,6 +26,12 @@ class ForgetPasswordForm(forms.Form):
 
 
 class ResetPasswordForm(forms.Form):
-    email = forms.EmailField(required=True)
+    # email = forms.EmailField(required=True)
     password1 = forms.CharField(required=True, min_length=5)
     password2 = forms.CharField(required=True, min_length=5)
+
+
+class ImageUploadForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['avatar']

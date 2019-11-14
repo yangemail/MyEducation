@@ -62,5 +62,8 @@ class Teacher(models.Model):
         verbose_name = '机构教师'
         verbose_name_plural = verbose_name
 
+    def org(self):
+        return self.courseorganization
+
     def __str__(self):
         return self.name

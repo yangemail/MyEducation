@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% block title %}公开课评论 - 慕学在线网{% endblock %}
+{% block title %}公开课评论 - 在线网{% endblock %}
 {% load staticfiles %}
 {% block custom_bread %}
     <section>
@@ -80,9 +80,9 @@
                                 {% for user_comments in all_comments %}
                                     <li class="post-row">
                                         <div class="media">
-                                            <span target="_blank"><img
-                                                    src='{{ MEDIA_URL }}{{ user_comments.user.image }}' width='40'
-                                                    height='40'/></span>
+                                            <span target="_blank">
+                                                <img src='{{ MEDIA_URL }}{{ user_comments.user.avatar }}' width='40' height='40'/>
+                                            </span>
                                         </div>
                                         <div class="bd">
                                             <div class="tit">

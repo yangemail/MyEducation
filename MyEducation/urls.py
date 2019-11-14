@@ -13,16 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
+from django.views.static import serve
 
 import xadmin
-from django.views.static import serve
 from MyEducation.settings import MEDIA_ROOT
-
-# from user.views import user_login
-from organization.views import OrgView
 from user.views import LoginView, RegisterView, UserActiveView, ForgetPasswordView, ResetView, ModifyPwdView, LogoutView
 
 urlpatterns = [
@@ -49,6 +45,12 @@ urlpatterns = [
     # path('org_list/', OrgView.as_view(), name='org_list')
     path('org/', include(('organization.urls', 'organization'), namespace='org')),
 
+    # 讲师 url 配置
+    # path('org/', include(('organization.urls', 'organization'), namespace='teacher')),
+
     # 课程 url 配置
     path('course/', include(('course.urls', 'course'), namespace='course')),
+
+    # 用户
+    path('users/', include(('user.urls', 'users'), namespace='users')),
 ]

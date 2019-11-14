@@ -1,3 +1,5 @@
+import json
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.backends import ModelBackend
@@ -7,7 +9,8 @@ from django.urls import reverse
 from django.views.generic.base import View
 
 from operation.models import UserMessage
-from user.forms import LoginForm, RegisterForm, ForgetPasswordForm, ResetPasswordForm
+from user.forms import LoginForm, RegisterForm, ForgetPasswordForm, ResetPasswordForm, ImageUploadForm
+from utils.mixin_utils import LoginRequiredMixin
 from .models import UserProfile, EmailVerifyRecord
 from utils.email_send import send_register_email
 
@@ -26,14 +29,14 @@ class CustomizedBackend(ModelBackend):
 class RegisterView(View):
     def get(self, request):
         register_form = RegisterForm()
-        return render(request, 'register.html', {'register_form': register_form})
+        return render(request, 'user/register.html', {'register_form': register_form})
 
     def post(self, request):
         register_form = RegisterForm(request.POST)
         if register_form.is_valid():
             username = request.POST.get('email', '')
             if UserProfile.objects.filter(email=username):
-                return render(request, 'register.html', {'register_form': register_form, 'msg': '用户已经存在'})
+                return render(request, 'user/register.html', {'register_form': register_form, 'msg': '用户已经存在'})
             password = request.POST.get('password', '')
             user_profile = UserProfile()
             user_profile.username = username
@@ -49,9 +52,9 @@ class RegisterView(View):
             user_message.save()
 
             send_register_email(username, 'register')
-            return render(request, 'login.html', {})
+            return render(request, 'user/login.html', {})
         else:
-            return render(request, 'register.html', {'register_form': register_form})
+            return render(request, 'user/register.html', {'register_form': register_form})
 
 
 class UserActiveView(View):
@@ -64,17 +67,19 @@ class UserActiveView(View):
                 user.is_active = True
                 user.save()
         else:
-            return render(request, 'active_fail.html', {})
-        return render(request, 'login.html', {})
+            return render(request, 'user/active_fail.html', {})
+        return render(request, 'user/login.html', {})
+
 
 class LogoutView(View):
     def get(self, request):
         logout(request)
         return redirect(reverse('index'))
 
+
 class LoginView(View):
     def get(self, request):
-        return render(request, 'login.html', {})
+        return render(request, 'user/login.html', {})
 
     def post(self, request):
         login_form = LoginForm(request.POST)
@@ -87,26 +92,26 @@ class LoginView(View):
                     login(request, user)
                     return render(request, 'index.html', {})
                 else:
-                    return render(request, 'login.html', {'msg': '用户账户未激活!'})
+                    return render(request, 'user/login.html', {'msg': '用户账户未激活!'})
             else:
-                return render(request, 'login.html', {'msg': '用户名或密码错误!'})
+                return render(request, 'user/login.html', {'msg': '用户名或密码错误!'})
         else:
-            return render(request, 'login.html', {'login_form': login_form})
+            return render(request, 'user/login.html', {'login_form': login_form})
 
 
 class ForgetPasswordView(View):
     def get(self, request):
         forget_password_form = ForgetPasswordForm()
-        return render(request, 'forgetpwd.html', {'forget_password_form': forget_password_form})
+        return render(request, 'user/forgetpwd.html', {'forget_password_form': forget_password_form})
 
     def post(self, request):
         forget_password_form = ForgetPasswordForm(request.POST)
         if forget_password_form.is_valid():
             email = request.POST.get('email', '')
             send_register_email(email, 'forget')
-            return render(request, 'send_success.html')
+            return render(request, 'common/send_success.html')
         else:
-            return render(request, 'forgetpwd.html', {'forget_password_form': forget_password_form})
+            return render(request, 'user/forgetpwd.html', {'forget_password_form': forget_password_form})
 
 
 class ResetView(View):
@@ -115,12 +120,13 @@ class ResetView(View):
         if all_records:
             for record in all_records:
                 email = record.email
-                return render(request, 'password_reset.html', {'email': email})
+                return render(request, 'user/password_reset.html', {'email': email})
         else:
-            return render(request, 'active_fail.html')
-        return render(request, 'login.html')
+            return render(request, 'user/active_fail.html')
+        return render(request, 'user/login.html')
 
 
+# 修改用户密码
 class ModifyPwdView(View):
     def post(self, request):
         reset_password_form = ResetPasswordForm(request.POST)
@@ -129,12 +135,73 @@ class ModifyPwdView(View):
             password2 = request.POST.get('password2', '')
             email = request.POST.get('email', '')
             if password1 != password2:
-                return render(request, 'password_reset.html', {'email': email, 'msg': '密码不一致'})
+                return render(request, 'user/password_reset.html', {'email': email, 'msg': '密码不一致'})
 
             user = UserProfile.objects.get(email=email)
             user.password = make_password(password1)
             user.save()
-            return render(request, "login.html")
+            return render(request, "user/login.html")
         else:
             email = request.POST.get("email", "")
-            return render(request, "password_reset.html", {"email": email, "reset_password_form": reset_password_form})
+            return render(request, "user/password_reset.html",
+                          {"email": email, "reset_password_form": reset_password_form})
+
+
+# 个人中心 - 用户个人信息
+class UserInfoView(LoginRequiredMixin, View):
+    def get(self, request):
+        return render(request, 'usercenter/usercenter-info.html', {})
+
+
+# 个人中心 - 用户修改头像
+class ImageUploadView(LoginRequiredMixin, View):
+    def post(self, request):
+        # 使用传统方法
+        # image_upload_form = ImageUploadForm(request.POST, request.FILES)
+        # if image_upload_form.is_valid():
+        #     avatar = image_upload_form.cleaned_data['avatar']
+        #     request.user.avatar = avatar
+        #     request.user.save()
+
+        # 使用 ModelForm，直接传入 instance 实例对象
+        image_upload_form = ImageUploadForm(request.POST, request.FILES, instance=request.user)
+        if image_upload_form.is_valid():
+            image_upload_form.save()
+            return HttpResponse('{"status":"success"}', content_type='application/json')
+        else:
+            return HttpResponse('{"status":"success"}', content_type='application/json')
+
+
+# 个人中心 - 修改用户密码
+class PasswordUpdateView(LoginRequiredMixin, View):
+    def post(self, request):
+        reset_password_form = ResetPasswordForm(request.POST)
+        if reset_password_form.is_valid():
+            pwd1 = request.POST.get('password1', '')
+            pwd2 = request.POST.get('password2', '')
+            if pwd1 != pwd2:
+                return HttpResponse('{"status":"success", "msg":"密码不一致"}', content_type='application/json')
+            user = request.user
+            user.password = make_password(pwd2)
+            user.save()
+            return HttpResponse('{"status":"success"}', content_type='applicaton/json')
+        else:
+            return HttpResponse(json.dumps(reset_password_form.errors), content_type='application/json')
+
+
+class SendEmailCodeView(LoginRequiredMixin, View):
+    def get(self, request):
+        email = request.GET.get('email', '')
+        if UserProfile.objects.filter(email=email):
+            return HttpResponse('{"email":"注册邮箱已经存在"}', content_type='application/json')
+
+        send_register_email(email, 'update_email')
+        return HttpResponse('{"status":"success", "msg":"邮箱验证码发送成功"}', content_type='application/json')
+
+class UpdateEmailView(LoginRequiredMixin, View):
+    pass
+
+# 用户中心 - 发送邮箱验证码（更新注册邮箱）
+class UserUserMessageView(LoginRequiredMixin, View):
+    def get(self, request):
+        return render(request, 'usercenter/usercenter-message.html', {})
