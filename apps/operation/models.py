@@ -40,6 +40,7 @@ class UserFavorite(models.Model):
         verbose_name = '用户收藏'
         verbose_name_plural = verbose_name
 
+
 class UserMessage(models.Model):
     user = models.IntegerField(default=0, verbose_name='接收用户')
     message = models.CharField(max_length=500, verbose_name='消息内容')
@@ -51,11 +52,12 @@ class UserMessage(models.Model):
         verbose_name = '用户消息'
         verbose_name_plural = verbose_name
 
+
 class UserCourse(models.Model):
     user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='用户外键')
     course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='学习课程外键')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+
     class Meta:
         verbose_name = '用户课程'
         verbose_name_plural = verbose_name
-

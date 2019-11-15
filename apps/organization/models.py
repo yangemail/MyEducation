@@ -18,6 +18,7 @@ class City(models.Model):
 # Create your models here.
 class CourseOrganization(models.Model):
     name = models.CharField(max_length=50, verbose_name='机构名称')
+    tag = models.CharField(max_length=10, default='全国知名', verbose_name='机构标签')
     desc = models.TextField(verbose_name='机构描述')
     category = models.CharField(max_length=20, choices=(('pxjg', '培训机构'), ('gr', '个人'), ('gx', '高校')), default='pxjg',
                                 verbose_name='机构类别')
@@ -64,6 +65,9 @@ class Teacher(models.Model):
 
     def org(self):
         return self.courseorganization
+
+    def get_course_nums(self):
+        return self.course_set.all().count()
 
     def __str__(self):
         return self.name

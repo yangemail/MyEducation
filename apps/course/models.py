@@ -8,7 +8,9 @@ class Course(models.Model):
     course_org = models.ForeignKey(CourseOrganization, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='课程机构')
     name = models.CharField(max_length=50, verbose_name='课程名称')
     desc = models.CharField(max_length=300, verbose_name='课程描述')
+    tag = models.CharField(max_length=10, default='', verbose_name='机构标签')
     detail = models.TextField(verbose_name='课程详情')
+    is_banner = models.BooleanField(default=False, verbose_name='是否轮播') # 课程轮播图广告位
     teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='授课教师外键')
     degree = models.CharField(choices=(('cj', '初级'), ('zj', '中级'), ('gj', '高级')), max_length=3, verbose_name='课程难度')
     learn_times = models.IntegerField(default=0, verbose_name='学习时长（分钟数）')
