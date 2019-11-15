@@ -9,7 +9,7 @@ from django.urls import reverse
 from django.views.generic.base import View
 
 from operation.models import UserMessage
-from user.forms import LoginForm, RegisterForm, ForgetPasswordForm, ResetPasswordForm, ImageUploadForm
+from user.forms import LoginForm, RegisterForm, ForgetPasswordForm, ResetPasswordForm, ImageUploadForm, UserInfoForm
 from utils.mixin_utils import LoginRequiredMixin
 from .models import UserProfile, EmailVerifyRecord
 from utils.email_send import send_register_email
@@ -152,6 +152,14 @@ class UserInfoView(LoginRequiredMixin, View):
     def get(self, request):
         return render(request, 'usercenter/usercenter-info.html', {})
 
+    def post(self, request):
+        user_info_form = UserInfoForm(request.POST, instance=request.user)
+        if user_info_form.is_valid():
+            user_info_form.save()
+            return HttpResponse('{"status":"success"}', content_type='application/json')
+        else:
+            return HttpResponse(json.dumps(user_info_form.errors), content_type='application/json')
+
 
 # 个人中心 - 用户修改头像
 class ImageUploadView(LoginRequiredMixin, View):
@@ -189,6 +197,7 @@ class PasswordUpdateView(LoginRequiredMixin, View):
             return HttpResponse(json.dumps(reset_password_form.errors), content_type='application/json')
 
 
+# 用户中心 - 发送邮箱验证码View
 class SendEmailCodeView(LoginRequiredMixin, View):
     def get(self, request):
         email = request.GET.get('email', '')
@@ -198,8 +207,21 @@ class SendEmailCodeView(LoginRequiredMixin, View):
         send_register_email(email, 'update_email')
         return HttpResponse('{"status":"success", "msg":"邮箱验证码发送成功"}', content_type='application/json')
 
+
+# 用户中心 - 验证邮箱验证码 （用户需要登录，并在用户中心输入邮箱验证码）
 class UpdateEmailView(LoginRequiredMixin, View):
-    pass
+    def post(self, request):
+        email = request.POST.get('email', '')
+        code = request.POST.get('code', '')
+        existed_records = EmailVerifyRecord.objects.filter(email=email, code=code, send_type='update_email')
+        if existed_records:
+            user = request.user
+            user.email = email
+            user.save()
+            return HttpResponse('{"status":"success"}', content_type='application/json')
+        else:
+            return HttpResponse('{"email":"验证码出错"}', content_type='application/json')
+
 
 # 用户中心 - 发送邮箱验证码（更新注册邮箱）
 class UserUserMessageView(LoginRequiredMixin, View):
