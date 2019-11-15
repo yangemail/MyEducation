@@ -1,16 +1,22 @@
 from django.db import models
+from DjangoUeditor.models import UEditorField
 
 from organization.models import CourseOrganization, Teacher
 
 
 # Create your models here.
 class Course(models.Model):
-    course_org = models.ForeignKey(CourseOrganization, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='课程机构')
+    course_org = models.ForeignKey(CourseOrganization, on_delete=models.SET_NULL, null=True, blank=True,
+                                   verbose_name='课程机构')
     name = models.CharField(max_length=50, verbose_name='课程名称')
     desc = models.CharField(max_length=300, verbose_name='课程描述')
     tag = models.CharField(max_length=10, default='', verbose_name='机构标签')
-    detail = models.TextField(verbose_name='课程详情')
-    is_banner = models.BooleanField(default=False, verbose_name='是否轮播') # 课程轮播图广告位
+    # detail = models.TextField(verbose_name='课程详情') # 更改为富文本
+    detail = UEditorField(width=600, height=300, toolbars='full', imagePath="courses/ueditor/",
+                          filePath="courses/ueditor/",
+                          upload_settings={'imageMaxSize': 1204000}, settings={}, command=None, blank=True,
+                          default='', verbose_name="课程详情")
+    is_banner = models.BooleanField(default=False, verbose_name='是否轮播')  # 课程轮播图广告位
     teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='授课教师外键')
     degree = models.CharField(choices=(('cj', '初级'), ('zj', '中级'), ('gj', '高级')), max_length=3, verbose_name='课程难度')
     learn_times = models.IntegerField(default=0, verbose_name='学习时长（分钟数）')
@@ -33,6 +39,15 @@ class Course(models.Model):
     def get_zj_nums(self):
         return self.lesson_set.all().count()
 
+    # get_zj_nums.short_description = '章节数' # 用于在xadmin中，显示header
+
+    # 在xadmin中加入其他网站跳转
+    def go_to(self):
+        from django.utils.safestring import mark_safe
+        return mark_safe('<a href="http://bing.com">跳转</a>')
+
+    go_to.short_description = '跳转'
+
     # 获得学习用户
     def get_learn_users(self):
         return self.usercourse_set.all()[:5]
@@ -43,6 +58,13 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class BannerCourse(Course):
+    class Meta:
+        verbose_name = '轮播课程'
+        verbose_name_plural = verbose_name
+        proxy = True  # 必须设定为 Proxy = True, 否则会另外生成一张表
 
 
 class Lesson(models.Model):
@@ -68,7 +90,8 @@ class Video(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='章节外键')
     url = models.CharField(max_length=100, default='', null=True, blank=True, verbose_name='视频访问地址')
     learn_times = models.IntegerField(default=0, verbose_name='学习时长（分钟数）')
-    local_video_file = models.FileField(upload_to='course/video/%Y/%m', default='', null=True, blank=True, verbose_name='本地视频')
+    local_video_file = models.FileField(upload_to='course/video/%Y/%m', default='', null=True, blank=True,
+                                        verbose_name='本地视频')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     last_modified_time = models.DateTimeField(auto_now=True, verbose_name='最后修改时间')
 

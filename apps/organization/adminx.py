@@ -20,6 +20,7 @@ class CourseOrganizationAdmin(object):
     search_fields = ['name', 'desc', 'click_nums', 'fav_nums', 'image', 'address', 'city', ]
     list_filter = ['name', 'desc', 'click_nums', 'fav_nums', 'image', 'address', 'city', 'created_time',
                    'last_modified_time']
+    # relfield_style = 'fk-ajax' # 以Ajax加载的方式完成显示（对于指向此model的外键）
 
 
 class TeacherAdmin(object):

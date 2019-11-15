@@ -28,7 +28,9 @@ PLUGINS = (
     'language',
     'quickfilter',
     'sortablelist',
-    'importexport'
+    'importexport',
+    # 增加 "ueditor" plugin
+    'ueditor',
 )
 
 

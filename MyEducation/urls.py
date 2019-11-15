@@ -45,6 +45,9 @@ urlpatterns = [
     re_path('^reset/(?P<active_code>.*)/$', ResetView.as_view(), name='reset_pwd'),
     path('modify_pwd/', ModifyPwdView.as_view(), name='modify_pwd'),
 
+    # 富文本相关url
+    path('ueditor/', include('DjangoUeditor.urls')),
+
     # 机构 url 配置
     # path('org_list/', OrgView.as_view(), name='org_list')
     path('org/', include(('organization.urls', 'organization'), namespace='org')),
