@@ -52,7 +52,7 @@ class UserMessage(models.Model):
         verbose_name = '用户消息'
         verbose_name_plural = verbose_name
 
-
+# 多对多的中间表： 学生对课程
 class UserCourse(models.Model):
     user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='用户外键')
     course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='学习课程外键')

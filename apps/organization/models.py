@@ -24,7 +24,7 @@ class CourseOrganization(models.Model):
                                 verbose_name='机构类别')
     click_nums = models.IntegerField(default=0, verbose_name='点击数')
     fav_nums = models.IntegerField(default=0, verbose_name='收藏数')
-    image = models.ImageField(upload_to='org/%Y/%m', max_length=100, verbose_name='机构logo')
+    image = models.ImageField(upload_to='org/%Y/%m', max_length=200, verbose_name='机构logo')
     address = models.CharField(max_length=150, verbose_name='机构地址')
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='所在城市外键')
     student_nums = models.IntegerField(default=0, verbose_name='学习人数')
@@ -46,14 +46,16 @@ class CourseOrganization(models.Model):
 
 class Teacher(models.Model):
     name = models.CharField(max_length=50, verbose_name='教师名称')
-    avatar = models.ImageField(upload_to='teacher/%Y/%m', default='avatar/default.png', max_length=100,
+    nickname = models.CharField(default='', max_length=30, primary_key=False, db_index=True, verbose_name='讲师昵称')
+    avatar = models.ImageField(upload_to='teacher/%Y/%m', default='avatar/default.png', max_length=200,
                                verbose_name='用户头像')
+    introduction = models.TextField(default='', verbose_name='讲师简介')
     work_years = models.IntegerField(default=0, verbose_name='工作年限')
     work_company = models.CharField(max_length=50, verbose_name='就职公司')
     work_position = models.CharField(max_length=50, verbose_name='公司职位')
     points = models.CharField(max_length=50, verbose_name='教学特点')
     click_nums = models.IntegerField(default=0, verbose_name='点击数')
-    fav_nums = models.IntegerField(default=0, verbose_name='收藏数')
+    fav_nums = models.IntegerField(default=0, verbose_name='收藏数|粉丝数')
     courseorganization = models.ForeignKey(CourseOrganization, on_delete=models.SET_NULL, null=True, blank=True,
                                            verbose_name='所属机构外键')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
@@ -71,3 +73,20 @@ class Teacher(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class TeacherAssistant(models.Model):
+    nickname = models.CharField(default='', max_length=30, db_index=True, verbose_name='助教昵称')
+    hobby = models.CharField(max_length=100, null=True, blank=True, verbose_name='爱好')
+
+    teacher = models.OneToOneField(Teacher, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='讲师')
+    created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    last_modified_time = models.DateTimeField(auto_now=True, verbose_name='更新时间')
+
+    class Meta:
+        # db_table = 'courses_assistant' # 按照此文字，创建表名
+        verbose_name = '助教信息表'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.nickname

@@ -17,6 +17,7 @@ import sys
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Add apps folder to path
+sys.path.insert(0, BASE_DIR)
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 
@@ -102,6 +103,13 @@ DATABASES = {
         'PASSWORD': 'jee911jee',
         'HOST': '127.0.0.1',
         'PORT': '3306',
+        # 'OPTIONS': {'init_command': 'SET storage_engine=INNODB;'}, # 如果是MySQL 5.7 和以上版本
+        'OPTIONS': {
+            'init_command': "SET default_storage_engine=INNODB;"
+                            "SET sql_mode='STRICT_TRANS_TABLES';"
+                            "SET GLOBAL group_concat_max_len=102400;"
+                            "SET charset utf8"
+        }
     }
 }
 
