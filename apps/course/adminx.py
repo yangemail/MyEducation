@@ -17,7 +17,7 @@ from .models import Course, Lesson, Video, CourseResource, BannerCourse
 #     model = CourseResource
 #     extra = 0
 
-
+# 普通課程（無首頁輪播）
 class CourseAdmin(object):
     list_display = ['name', 'desc', 'detail', 'degree', 'learn_times', 'students', 'fav_nums', 'image', 'click_nums',
                     'created_time', 'last_modified_time']  # 此处也可以加入函数，例如：get_zj_nums
@@ -49,6 +49,7 @@ class CourseAdmin(object):
             course_org.save()
 
 
+# 輪播圖課程（首頁輪播）
 class BannerCourseAdmin(object):
     list_display = ['name', 'desc', 'detail', 'degree', 'learn_times', 'students', 'fav_nums', 'image', 'click_nums',
                     'created_time', 'last_modified_time']
@@ -75,6 +76,7 @@ class VideoAdmin(object):
     list_filter = ['name', 'lesson', 'created_time', 'last_modified_time']
 
 
+# 課程上傳資源（課程相關文件）
 class CourseResourceAdmin(object):
     list_display = ['name', 'download', 'course', 'created_time', 'last_modified_time']
     search_fields = ['name', 'download', 'course', ]

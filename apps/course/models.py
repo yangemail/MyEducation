@@ -14,7 +14,7 @@ class Course(models.Model):
     volumn = models.PositiveIntegerField(default=0, verbose_name='销量')
     online = models.DateField(null=True, blank=True, verbose_name='本课程上线时间')
     desc = models.CharField(max_length=300, verbose_name='课程描述')
-    tag = models.CharField(max_length=10, default='', verbose_name='机构标签')
+    # tag = models.CharField(max_length=10, default='', verbose_name='机构标签')
     # detail = models.TextField(verbose_name='课程详情') # 更改为富文本
     detail = UEditorField(width=600, height=300, toolbars='full', imagePath="courses/ueditor/",
                           filePath="courses/ueditor/",
@@ -67,6 +67,7 @@ class Course(models.Model):
         # return "{} - {}".format(self.get_type_display(), self.title) # 相当于format本语句，f属于python3的新特性
 
 
+# 首頁輪播課程
 class BannerCourse(Course):
     class Meta:
         verbose_name = '轮播课程'
@@ -110,6 +111,7 @@ class Video(models.Model):
         return self.name
 
 
+# 課程上傳資源（課程相關文件）
 class CourseResource(models.Model):
     name = models.CharField(max_length=100, verbose_name='资源名称')
     download = models.FileField(upload_to='course/resource/%Y/%m', max_length=100, verbose_name='资源文件')

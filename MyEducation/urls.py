@@ -60,6 +60,9 @@ urlpatterns = [
 
     # 用户
     path('users/', include(('user.urls', 'users'), namespace='users')),
+
+    # Blog
+    path('blog/', include(('blog.urls', 'blog'), namespace='blog')),
 ]
 
 # 全局404页面配置

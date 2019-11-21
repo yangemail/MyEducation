@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8">
+    <title>
+        IT技术文章_慕课网手记
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit"/>
+    <meta name="mobile-agent" content="format=wml" ; url="https://m.imooc.com/article">
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.imooc.com/article">
+    <meta name="mobile-agent" content="format=xhtml" ; url="https://m.imooc.com/article">
+    <meta name="mobile-agent" content="format=html5" ; url="https://m.imooc.com/article">
+    <meta property="qc:admins" content="77103107776157736375"/>
+    <meta property="wb:webmaster" content="c4f857219bfae3cb"/>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*"/>
+    <meta http-equiv="Cache-Control" content="no-transform "/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/img/common/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/static/img/common/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/img/common/touch-icon-ipad-retina.png">
+
+    <meta name="Keywords" content="IT技术文章"/>
+
+
+    <meta name="Description" content="慕课网为IT专业技术人员提供最新的文章信息,包括PHP,JAVA,C语言,MySql,DB2等相关文章,更多IT技术资讯、编程语言博客、it博客、IT blog、原创内容、开源代码尽在慕课手记。
+"/>
+
+
+    <link rel="stylesheet" href="../static/css/moco.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/css/swiper-3.4.2.min.css">
+
+
+    <script type="text/javascript">
+
+        var OP_CONFIG = {"module": "article", "page": "index"};
+        var isLogin = 0;
+        var is_choice = "";
+        var seajsTimestamp = "v=201911201348";
+        var _msg_unread = 0;
+        var _not_unread = 0;
+        var _cart_num = 0;
+    </script>
+
+
+    <script>
+
+
+    </script>
+    <script>
+        var isLogin = 0;
+        var labelId = "";
+
+        var _page = 'index';
+        // OP_CONFIG.page = 'index222';
+
+
+    </script>
+
+
+    <script type="text/javascript">
+
+        eval(function (p, a, c, k, e, d) {
+            e = function (c) {
+                return (c < a ? "" : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
+            };
+            if (!''.replace(/^/, String)) {
+                while (c--) d[e(c)] = k[c] || e(c);
+                k = [function (e) {
+                    return d[e]
+                }];
+                e = function () {
+                    return '\\w+'
+                };
+                c = 1;
+            }
+            ;
+            while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+            return p;
+        }('!4(){3 b={};3 d=0;3 5=[{c:\'//k.p.h/k/m/K/L.q\',6:0},{c:\'//m.p.h/I/J-O.q\',6:0}];3 u=4(){3 j,n=e P("(^| )"+"l=([^;]*)(;|$)");9(j=r.s.M(n)){o N(j[2])}D{o C}};3 A=4(t){3 B=u();3 8=e H();8.G(8.F()+E*v*v*10);r.s="l="+t+";13="+8.14()+";15=/;T=U.h";9(t&&t!=B){R.Y.Z()}};3 x=4(i){3 7=e X();7.V=4(){W(b[i]);b[i]=C;a(i,0)};7.Q=4(){a(i,1)};b[i]=S(4(){7.z="";a(i,1)},11);7.z=5[i].c+"?t="+12.16()};3 a=4(y,6){d++;5[y].6=6;9(d==5.f){3 g=0;w(3 i=0;i<5.f;i++){9(5[i].6==1){g=1}}A(g)}};w(3 i=0;i<5.f;i++){x(i)}}()', 62, 69, '|||var|function|urls|flag|imgobj|exp|if|callback|timer|url|count|new|length|error|com||arr|static|IMCDNS|img|reg|return|mukewang|png|document|cookie||getcookie|60|for|checkCdn|index|src|setcookie|_0|null|else|24|getTime|setTime|Date|images|unknow|common|logo|match|unescape|80|RegExp|onerror|window|setTimeout|domain|imooc|onload|clearTimeout|Image|location|reload|1000|3000|Math|expires|toGMTString|path|random'.split('|'), 0, {}))
+
+    </script>
+    <script src="../static/js/init.js"></script>
+{#    <link rel="stylesheet" href="../static/css/4dd9570aeaaa4ca6b48d52988961b73e.css" type="text/css"/>#}
+</head>
+
+<body>
+
+
+<div id="globalTopBanner"></div>
+<div id="new_header" class="special-header">
+    <div class="page-container new-header clearfix" id="nav">
+        <ul class="nav-item">
+            <li><a href="/" target="_self" class="imooc">慕课网首页</a></li>
+            <li><a href="/course/list" target="_self">免费课程</a></li>
+            <li><a href="//coding.imooc.com" target="_self">实战课程</a></li>
+            <li><a href="//class.imooc.com" class="" target="_self">就业班</a></li>
+            <li><a href="/read" target="_self">专栏</a></li>
+            <li><a href="/wenda" target="_self">猿问</a></li>
+            <li><a href="/article" class="active" target="_self">手记</a></li>
+            <!-- <li><a href="//job.imooc.com" target="_self">猿聘<i class="icn-new"></i></a></li> -->
+        </ul>
+        <div class="header-right">
+            <div class="app-download" id="js-app-load">
+                <a href="//www.imooc.com/mobile/app" target="_blank">下载APP</a>
+                <div class="app-load-box clearfix js-load-box">
+                    <div class="mobile-load-box">
+                        <h4>慕课网APP - 随时随地学编程</h4>
+                        <img src="../static/picture/appload.png" class="l">
+                        <div class="r">
+                            <a class="app-load-btn" href="https://itunes.apple.com/cn/app/mu-ke-wang/id722179140?mt=8"
+                               target="_blank"><i class="icon-apple"></i>App Store下载</a>
+                            <a class="app-load-btn" href="//www.imooc.com/mobile/appdown" target="_blank"><i
+                                    class="icon-android"></i>Android下载</a>
+                            <p>扫描下载慕课网APP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-box">
+                <a href="javascript:void(0);" id="common-nav-search">
+                    <i class="imv2-search2"></i>
+                </a>
+                <div class="input-search hide" id="common-input-search">
+                    <div class="input-box">
+                        <input type="text" class="nav-search-input" autocomplete="off">
+                        <a href="javascript:void(0);" class="nav-searchBtn js-nav-searchBtn">
+                            <i class="imv2-search2"></i>
+                        </a>
+                    </div>
+                    <div class="nav-search-box hide">
+                        <div class="hot">
+                            <h2>热搜</h2>
+                            <div class="hot-box">
+                            </div>
+                        </div>
+                        <div class="history hide">
+                            <h2>最近搜索<a href="javascript:void(0);" class="history-clear js-clear-history">清空</a></h2>
+                            <div class="history-box">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-correlate-box hide">
+                        <div class="correlate">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shop-cart" id="shop-cart">
+                <a href="//order.imooc.com/pay/cart" class="shop-cart-icon" target="_blank">
+                    <span class="imv2-shopping-cart2 js-endcart"></span><span class="shopping_icon js-cart-num"
+                                                                              data-ordernum="0" data-cartnum="0"
+                                                                              style='display: none'>0</span>
+                </a>
+                <div class="my-cart" id="js-my-cart"></div>
+            </div>
+            <div id="login-area">
+                <ul class="header-unlogin clearfix">
+                    <li class="header-signin">
+                        <a href="//www.imooc.com/user/newlogin" id="js-signin-btn">登录</a> / <a
+                            href="//www.imooc.com/user/newsignup" id="js-signup-btn">注册</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="sub-header">
+    <div class="sub-container" id="sub-nav">
+        <a class="article-logo" href="/article"><img src="../static/picture/article-logo.png" alt=""></a>
+        <div class="operate-area clearfix">
+                <span>
+                    <a href="/article/publish" target="_blank" class="btn btn-blue btn-article">写文章</a>
+                </span>
+
+
+        </div>
+        <div class='search-warp clearfix' style='min-width: 32px;'>
+
+
+            <div class="search-area" data-search="top-banner">
+                <input class="search-input" data-suggest-trigger="suggest-trigger" placeholder="搜索感兴趣的知识和文章" type="text"
+                       autocomplete="off">
+                <input type='hidden' class='btn_search' data-search-btn="search-btn"/>
+                <ul class="search-area-result" data-suggest-result="suggest-result">
+                </ul>
+            </div>
+            <div class='showhide-search' data-show='no'><i class='icon-search'></i></div>
+        </div>
+
+    </div>
+</div>
+<div class="bindHintBox js-bindHintBox hide">
+    <div class="pr">
+        为了账号安全，请及时绑定邮箱和手机<a href="/user/setbindsns" class="ml20 color-red" target="_blank">立即绑定</a>
+        <button class="closeBindHint js-closeBindHint" type="button"></button>
+        <div class="arrow"></div>
+    </div>
+</div>
+
+
+<div id="main">
+
+    <div class="article container clearfix">
+        <ul class="left_menu l">
+            <li class="m_item active">
+                <a href="/article" class="url">推荐</a>
+            </li>
+            <li class="m_item ">
+                <a href="/article/information" class="url">资讯</a>
+            </li>
+            <li class="m_item ">
+                <a href="/article/new" class="url">最新文章</a>
+            </li>
+            <li class="m_item ">
+                <a href="/article/blockchain" class="url">区块链</a>
+
+            </li>
+            <li class="m_item ">
+                <a href="/article/ai" class="url">人工智能</a>
+
+            </li>
+            <li class="m_item ">
+                <a href="/article/clouddata" class="url">云计算/大数据</a>
+                <div class="label-box-wrap">
+                    <div class="label-box">
+                        <a class="label " href="/article/clouddata?labelId=21">
+                            云计算
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=104">
+                            容器
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=105">
+                            Kubernetes
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=101">
+                            OpenStack
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=99">
+                            Flink
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=102">
+                            AWS
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=103">
+                            阿里云
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=100">
+                            Storm
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=98">
+                            Hbase
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=96">
+                            Hadoop
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=97">
+                            Spark
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=167">
+                            R语言
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=73">
+                            Docker
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=141">
+                            挖掘
+                        </a>
+                        <a class="label " href="/article/clouddata?labelId=35">
+                            大数据
+                        </a>
+
+                    </div>
+                </div>
+
+            </li>
+            <li class="m_item ">
+                <a href="/article/fe" class="url">前端开发</a>
+                <div class="label-box-wrap">
+                    <div class="label-box">
+                        <a class="label " href="/article/fe?labelId=53">
+                            Sass/Less
+                        </a>
+                        <a class="label " href="/article/fe?labelId=52">
+                            Vue.js
+                        </a>
+                        <a class="label " href="/article/fe?labelId=26">
+                            前端工具
+                        </a>
+                        <a class="label " href="/article/fe?labelId=25">
+                            CSS3
+                        </a>
+                        <a class="label " href="/article/fe?labelId=24">
+                            Bootstrap
+                        </a>
+                        <a class="label " href="/article/fe?labelId=17">
+                            JavaScript
+                        </a>
+                        <a class="label " href="/article/fe?labelId=15">
+                            JQuery
+                        </a>
+                        <a class="label " href="/article/fe?labelId=14">
+                            Html5
+                        </a>
+                        <a class="label " href="/article/fe?labelId=13">
+                            Node.js
+                        </a>
+                        <a class="label " href="/article/fe?labelId=5">
+                            Html/CSS
+                        </a>
+                        <a class="label " href="/article/fe?labelId=50">
+                            React.JS
+                        </a>
+                        <a class="label " href="/article/fe?labelId=22">
+                            AngularJS
+                        </a>
+                        <a class="label " href="/article/fe?labelId=27">
+                            WebApp
+                        </a>
+                        <a class="label " href="/article/fe?labelId=122">
+                            vuex
+                        </a>
+                        <a class="label " href="/article/fe?labelId=121">
+                            webpack
+                        </a>
+                        <a class="label " href="/article/fe?labelId=88">
+                            小程序
+                        </a>
+
+                    </div>
+                </div>
+
+            </li>
+            <li class="m_item ">
+                <a href="/article/be" class="url">后端开发</a>
+                <div class="label-box-wrap">
+                    <div class="label-box">
+                        <a class="label " href="/article/be?labelId=54">
+                            Ruby
+                        </a>
+                        <a class="label " href="/article/be?labelId=38">
+                            C#
+                        </a>
+                        <a class="label " href="/article/be?labelId=31">
+                            Go
+                        </a>
+                        <a class="label " href="/article/be?labelId=30">
+                            C++
+                        </a>
+                        <a class="label " href="/article/be?labelId=28">
+                            C
+                        </a>
+                        <a class="label " href="/article/be?labelId=18">
+                            Python
+                        </a>
+                        <a class="label " href="/article/be?labelId=3">
+                            JAVA
+                        </a>
+                        <a class="label " href="/article/be?labelId=2">
+                            PHP
+                        </a>
+                        <a class="label " href="/article/be?labelId=62">
+                            SpringBoot
+                        </a>
+                        <a class="label " href="/article/be?labelId=61">
+                            Yii
+                        </a>
+                        <a class="label " href="/article/be?labelId=60">
+                            ThinkPHP
+                        </a>
+                        <a class="label " href="/article/be?labelId=116">
+                            SSM
+                        </a>
+                        <a class="label " href="/article/be?labelId=124">
+                            Django
+                        </a>
+                        <a class="label " href="/article/be?labelId=117">
+                            爬虫
+                        </a>
+                        <a class="label " href="/article/be?labelId=90">
+                            Flask
+                        </a>
+                        <a class="label " href="/article/be?labelId=129">
+                            Spring
+                        </a>
+                        <a class="label " href="/article/be?labelId=125">
+                            JVM
+                        </a>
+                        <a class="label " href="/article/be?labelId=128">
+                            .NET
+                        </a>
+                        <a class="label " href="/article/be?labelId=127">
+                            MVVM
+                        </a>
+                        <a class="label " href="/article/be?labelId=126">
+                            laravel
+                        </a>
+                        <a class="label " href="/article/be?labelId=91">
+                            Tornado
+                        </a>
+                        <a class="label " href="/article/be?labelId=89">
+                            Spring Cloud
+                        </a>
+                        <a class="label " href="/article/be?labelId=171">
+                            Swoole
+                        </a>
+
+                    </div>
+                </div>
+
+            </li>
+            <li class="m_item ">
+                <a href="/article/mobile" class="url">移动互联</a>
+                <div class="label-box-wrap">
+                    <div class="label-box">
+                        <a class="label " href="/article/mobile?labelId=19">
+                            iOS
+                        </a>
+                        <a class="label " href="/article/mobile?labelId=12">
+                            Android
+                        </a>
+                        <a class="label " href="/article/mobile?labelId=93">
+                            WEEX
+                        </a>
+                        <a class="label " href="/article/mobile?labelId=92">
+                            Ionic
+                        </a>
+                        <a class="label " href="/article/mobile?labelId=165">
+                            React Native
+                        </a>
+                        <a class="label " href="/article/mobile?labelId=134">
+                            gradle
+                        </a>
+                        <a class="label " href="/article/mobile?labelId=133">
+                            Android Studio
+                        </a>
+                        <a class="label " href="/article/mobile?labelId=132">
+                            Kotlin
+                        </a>
+                        <a class="label " href="/article/mobile?labelId=131">
+                            native
+                        </a>
+                        <a class="label " href="/article/mobile?labelId=130">
+                            React
+                        </a>
+                        <a class="label " href="/article/mobile?labelId=135">
+                            Swift
+                        </a>
+
+                    </div>
+                </div>
+
+            </li>
+            <li class="m_item ">
+                <a href="/article/tools" class="url">工具资源</a>
+
+            </li>
+            <li class="m_item ">
+                <a href="/article/work" class="url">职场生活</a>
+                <div class="label-box-wrap">
+                    <div class="label-box">
+                        <a class="label " href="/article/work?labelId=49">
+                            产品
+                        </a>
+                        <a class="label " href="/article/work?labelId=67">
+                            面试
+                        </a>
+                        <a class="label " href="/article/work?labelId=166">
+                            搞笑
+                        </a>
+                        <a class="label " href="/article/work?labelId=74">
+                            幽默段子
+                        </a>
+                        <a class="label " href="/article/work?labelId=48">
+                            征文
+                        </a>
+                        <a class="label " href="/article/work?labelId=75">
+                            资讯
+                        </a>
+                        <a class="label " href="/article/work?labelId=46">
+                            职场生活
+                        </a>
+
+                    </div>
+                </div>
+
+            </li>
+            <li class="m_item ">
+                <a href="/article/funny" class="url">幽默段子</a>
+
+            </li>
+            <li class="m_item ">
+                <a href="/article/other" class="url">其它</a>
+                <div class="label-box-wrap">
+                    <div class="label-box">
+                        <a class="label " href="/article/other?labelId=146">
+                            正则表达式
+                        </a>
+                        <a class="label " href="/article/other?labelId=143">
+                            源码
+                        </a>
+                        <a class="label " href="/article/other?labelId=76">
+                            架构
+                        </a>
+                        <a class="label " href="/article/other?labelId=77">
+                            安全
+                        </a>
+                        <a class="label " href="/article/other?labelId=149">
+                            Git
+                        </a>
+                        <a class="label " href="/article/other?labelId=148">
+                            开源
+                        </a>
+                        <a class="label " href="/article/other?labelId=147">
+                            设计模式
+                        </a>
+                        <a class="label " href="/article/other?labelId=142">
+                            API
+                        </a>
+                        <a class="label " href="/article/other?labelId=145">
+                            操作系统
+                        </a>
+                        <a class="label " href="/article/other?labelId=78">
+                            活动
+                        </a>
+                        <a class="label " href="/article/other?labelId=169">
+                            编解码
+                        </a>
+                        <a class="label " href="/article/other?labelId=168">
+                            ffmpeg
+                        </a>
+
+                    </div>
+                </div>
+
+            </li>
+
+        </ul>
+
+        <div class="centerlist l">
+            <!-- 除了动态关注以外栏目 -->
+            <!-- 推荐页需要展示广告位 -->
+            <div class="bannerBox clearfix">
+                <div class="leftImg l">
+                    <a href='https://coding.imooc.com/class/392.html?mc_marking=df5982198e77e30ab3a83dff1cbdedff&mc_channel=shouji'
+                       target="_blank">
+                        <img src="../static/picture/5dd209a1091e8f3409000383.png">
+
+                        <div class='bannerDescription'>
+                            新课上线！助你 “业务+技术+思想+境界 ”全面飙升
+                        </div>
+                    </a>
+                </div>
+                <div class="rightImg r">
+                    <div class="topImg">
+                        <a href='https://www.imooc.com/article/288039' target="_blank">
+                            <img src="../static/picture/5cd94cf20878507703600202.jpg">
+
+                            <div class='bannerDescription2'>
+                                <span>【涨薪秘籍】没掌握这些，别说你想跳槽</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="bottomImg">
+                        <a href='https://class.imooc.com/sale/javaarchitect?mc_marking=c6615303b3175f848fccdb52abb833ec&mc_channel=shouji'
+                           target="_blank">
+                            <img src="../static/picture/5cff51fb08a8424003600202.jpg">
+
+                            <div class='bannerDescription2'>
+                                <span>快上车！Java架构师成长直通车出发啦~</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="article-wrapper">
+
+                <!--未登录时-->
+                <div class="padding-block"></div>
+                <!--关注标签-->
+                <div class="tagpop-block js-tagpop-block"></div>
+                <div id="tag-pop" class="js-tagpop-box modal hide">
+                    <div class="tagpop-top-box clearfix">
+                        <h3 class="tagpop-title">选择至少3个感兴趣的手记标签</h3>
+                        <p class="tagpop-desc">为你开启精准内容推荐</p>
+                    </div>
+                    <div class="tagpop-nano tagpop-content-box clearfix">
+                        <div class="tag-item-right nano-content">
+                            <div class="tag-list clearfix">
+                                <div class="sub">
+                                    <label data-id="1" class="">前端开发</label>
+                                    <ul class="clearfix">
+                                        <li data-tagid="53" data-src="//img3.mukewang.com/59e96dd80001be3802400240.jpg"
+                                            data-name="Sass/Less" class="">
+                                            <span>Sass/Less</span>
+                                        </li>
+                                        <li data-tagid="52" data-src="//img4.mukewang.com/59e96deb0001f9d302400240.jpg"
+                                            data-name="Vue.js" class="">
+                                            <span>Vue.js</span>
+                                        </li>
+                                        <li data-tagid="26" data-src="//img.mukewang.com/59e96eb100019d5902400240.jpg"
+                                            data-name="前端工具" class="">
+                                            <span>前端工具</span>
+                                        </li>
+                                        <li data-tagid="25" data-src="//img4.mukewang.com/59e96ebe0001a9ad02400240.jpg"
+                                            data-name="CSS3" class="">
+                                            <span>CSS3</span>
+                                        </li>
+                                        <li data-tagid="24" data-src="//img.mukewang.com/59e96ecc0001850802400240.jpg"
+                                            data-name="Bootstrap" class="">
+                                            <span>Bootstrap</span>
+                                        </li>
+                                        <li data-tagid="17" data-src="//img2.mukewang.com/59e96f340001faac02400240.jpg"
+                                            data-name="JavaScript" class="">
+                                            <span>JavaScript</span>
+                                        </li>
+                                        <li data-tagid="15" data-src="//img3.mukewang.com/59e96f420001726302400240.jpg"
+                                            data-name="JQuery" class="">
+                                            <span>JQuery</span>
+                                        </li>
+                                        <li data-tagid="14" data-src="//img4.mukewang.com/59e96f4f0001379302400240.jpg"
+                                            data-name="Html5" class="">
+                                            <span>Html5</span>
+                                        </li>
+                                        <li data-tagid="13" data-src="//img1.mukewang.com/59e96f5d00011f3602400240.jpg"
+                                            data-name="Node.js" class="">
+                                            <span>Node.js</span>
+                                        </li>
+                                        <li data-tagid="5" data-src="//img2.mukewang.com/59e96ff90001ab0402400240.jpg"
+                                            data-name="Html/CSS" class="">
+                                            <span>Html/CSS</span>
+                                        </li>
+                                        <li data-tagid="50" data-src="//img2.mukewang.com/59e96e0d0001a63a02400240.jpg"
+                                            data-name="React.JS" class="">
+                                            <span>React.JS</span>
+                                        </li>
+                                        <li data-tagid="22" data-src="//img4.mukewang.com/59e96ed90001e4e702400240.jpg"
+                                            data-name="AngularJS" class="">
+                                            <span>AngularJS</span>
+                                        </li>
+                                        <li data-tagid="27" data-src="//img3.mukewang.com/59e96ea50001e08602400240.jpg"
+                                            data-name="WebApp" class="">
+                                            <span>WebApp</span>
+                                        </li>
+                                        <li data-tagid="122" data-src="//img4.mukewang.com/5b51c45100015ea202400240.jpg"
+                                            data-name="vuex" class="">
+                                            <span>vuex</span>
+                                        </li>
+                                        <li data-tagid="121" data-src="//img.mukewang.com/5b51c3fe00015ea202400240.jpg"
+                                            data-name="webpack" class="">
+                                            <span>webpack</span>
+                                        </li>
+                                        <li data-tagid="88" data-src="//img4.mukewang.com/5baa209e0001cd1602400240.jpg"
+                                            data-name="小程序" class="">
+                                            <span>小程序</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sub">
+                                    <label data-id="2" class="">后端开发</label>
+                                    <ul class="clearfix">
+                                        <li data-tagid="54" data-src="//img.mukewang.com/59e96dc70001bc0b02400240.jpg"
+                                            data-name="Ruby" class="">
+                                            <span>Ruby</span>
+                                        </li>
+                                        <li data-tagid="38" data-src="//img2.mukewang.com/59e96e2900010d7d02400240.jpg"
+                                            data-name="C#" class="">
+                                            <span>C#</span>
+                                        </li>
+                                        <li data-tagid="31" data-src="//img.mukewang.com/59e96e6c0001108502400240.jpg"
+                                            data-name="Go" class="">
+                                            <span>Go</span>
+                                        </li>
+                                        <li data-tagid="30" data-src="//img.mukewang.com/59e96e7800018e5502400240.jpg"
+                                            data-name="C++" class="">
+                                            <span>C++</span>
+                                        </li>
+                                        <li data-tagid="28" data-src="//img2.mukewang.com/59e96e980001d29602400240.jpg"
+                                            data-name="C" class="">
+                                            <span>C</span>
+                                        </li>
+                                        <li data-tagid="18" data-src="//img4.mukewang.com/59e96f1c0001942802400240.jpg"
+                                            data-name="Python" class="">
+                                            <span>Python</span>
+                                        </li>
+                                        <li data-tagid="3" data-src="//img1.mukewang.com/59e9700900012e3602400240.jpg"
+                                            data-name="JAVA" class="">
+                                            <span>JAVA</span>
+                                        </li>
+                                        <li data-tagid="2" data-src="//img4.mukewang.com/59e970190001280402400240.jpg"
+                                            data-name="PHP" class="">
+                                            <span>PHP</span>
+                                        </li>
+                                        <li data-tagid="62" data-src="//img4.mukewang.com/5b69345d0001e0c702400240.jpg"
+                                            data-name="SpringBoot" class="">
+                                            <span>SpringBoot</span>
+                                        </li>
+                                        <li data-tagid="61" data-src="//img3.mukewang.com/5b69335800015f5002400240.jpg"
+                                            data-name="Yii" class="">
+                                            <span>Yii</span>
+                                        </li>
+                                        <li data-tagid="60" data-src="//img4.mukewang.com/5b69337b0001207402400240.jpg"
+                                            data-name="ThinkPHP" class="">
+                                            <span>ThinkPHP</span>
+                                        </li>
+                                        <li data-tagid="116" data-src="//img3.mukewang.com/5ba9b0bf0001ba0d02400240.jpg"
+                                            data-name="SSM" class="">
+                                            <span>SSM</span>
+                                        </li>
+                                        <li data-tagid="124" data-src="//img.mukewang.com/5bab22180001a46c02400240.jpg"
+                                            data-name="Django" class="">
+                                            <span>Django</span>
+                                        </li>
+                                        <li data-tagid="117" data-src="//img3.mukewang.com/5ba9b0a800011a9602400240.jpg"
+                                            data-name="爬虫" class="">
+                                            <span>爬虫</span>
+                                        </li>
+                                        <li data-tagid="90" data-src="//img1.mukewang.com/5baa20820001c41502400240.jpg"
+                                            data-name="Flask" class="">
+                                            <span>Flask</span>
+                                        </li>
+                                        <li data-tagid="129" data-src="//img3.mukewang.com/5b51c7b100015ea202400240.jpg"
+                                            data-name="Spring" class="">
+                                            <span>Spring</span>
+                                        </li>
+                                        <li data-tagid="125" data-src="//img.mukewang.com/5b51c74600015ea202400240.jpg"
+                                            data-name="JVM" class="">
+                                            <span>JVM</span>
+                                        </li>
+                                        <li data-tagid="128" data-src="//img4.mukewang.com/5b51c79f00015ea202400240.jpg"
+                                            data-name=".NET" class="">
+                                            <span>.NET</span>
+                                        </li>
+                                        <li data-tagid="127" data-src="//img1.mukewang.com/5b51c78100015ea202400240.jpg"
+                                            data-name="MVVM" class="">
+                                            <span>MVVM</span>
+                                        </li>
+                                        <li data-tagid="126" data-src="//img2.mukewang.com/5b51c76f00015ea202400240.jpg"
+                                            data-name="laravel" class="">
+                                            <span>laravel</span>
+                                        </li>
+                                        <li data-tagid="91" data-src="//img4.mukewang.com/5baaf2400001020a02400240.jpg"
+                                            data-name="Tornado" class="">
+                                            <span>Tornado</span>
+                                        </li>
+                                        <li data-tagid="89" data-src="//img.mukewang.com/5baa121b0001d50802400240.jpg"
+                                            data-name="Spring Cloud" class="">
+                                            <span>Spring Cloud</span>
+                                        </li>
+                                        <li data-tagid="171" data-src="//img2.mukewang.com/5be2cc4700019c0802400240.jpg"
+                                            data-name="Swoole" class="">
+                                            <span>Swoole</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sub">
+                                    <label data-id="3" class="">移动开发</label>
+                                    <ul class="clearfix">
+                                        <li data-tagid="19" data-src="//img3.mukewang.com/59e96f0a0001f87902400240.jpg"
+                                            data-name="iOS" class="">
+                                            <span>iOS</span>
+                                        </li>
+                                        <li data-tagid="12" data-src="//img4.mukewang.com/59e96f7a0001117402400240.jpg"
+                                            data-name="Android" class="">
+                                            <span>Android</span>
+                                        </li>
+                                        <li data-tagid="93" data-src="//img.mukewang.com/5baaf2cd00012c8c02400240.jpg"
+                                            data-name="WEEX" class="">
+                                            <span>WEEX</span>
+                                        </li>
+                                        <li data-tagid="92" data-src="//img.mukewang.com/5baa220c0001558302400240.jpg"
+                                            data-name="Ionic" class="">
+                                            <span>Ionic</span>
+                                        </li>
+                                        <li data-tagid="165" data-src="//img3.mukewang.com/5bab478e0001882402400240.jpg"
+                                            data-name="React Native" class="">
+                                            <span>React Native</span>
+                                        </li>
+                                        <li data-tagid="134" data-src="//img1.mukewang.com/5b51c84600015ea202400240.jpg"
+                                            data-name="gradle" class="">
+                                            <span>gradle</span>
+                                        </li>
+                                        <li data-tagid="133" data-src="//img2.mukewang.com/5b51c83400015ea202400240.jpg"
+                                            data-name="Android Studio" class="">
+                                            <span>Android Studio</span>
+                                        </li>
+                                        <li data-tagid="132" data-src="//img.mukewang.com/5b51c7e600015ea202400240.jpg"
+                                            data-name="Kotlin" class="">
+                                            <span>Kotlin</span>
+                                        </li>
+                                        <li data-tagid="131" data-src="//img1.mukewang.com/5b51c7d600015ea202400240.jpg"
+                                            data-name="native" class="">
+                                            <span>native</span>
+                                        </li>
+                                        <li data-tagid="130" data-src="//img2.mukewang.com/5b51c7c400015ea202400240.jpg"
+                                            data-name="React" class="">
+                                            <span>React</span>
+                                        </li>
+                                        <li data-tagid="135" data-src="//img1.mukewang.com/5b51c85800015ea202400240.jpg"
+                                            data-name="Swift" class="">
+                                            <span>Swift</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sub">
+                                    <label data-id="13" class="">计算机基础</label>
+                                    <ul class="clearfix">
+                                        <li data-tagid="39" data-src="//img3.mukewang.com/59e96db800015f3902400240.jpg"
+                                            data-name="数据结构" class="">
+                                            <span>数据结构</span>
+                                        </li>
+                                        <li data-tagid="94" data-src="//img1.mukewang.com/5baa20be00019bfe02400240.jpg"
+                                            data-name="算法与数据结构" class="">
+                                            <span>算法与数据结构</span>
+                                        </li>
+                                        <li data-tagid="65" data-src="//img4.mukewang.com/5b693343000131ed02400240.jpg"
+                                            data-name="算法" class="">
+                                            <span>算法</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sub">
+                                    <label data-id="12" class="">前沿技术</label>
+                                    <ul class="clearfix">
+                                        <li data-tagid="57" data-src="//img1.mukewang.com/5a4f53bd00019af102400240.jpg"
+                                            data-name="机器学习" class="">
+                                            <span>机器学习</span>
+                                        </li>
+                                        <li data-tagid="58" data-src="//img4.mukewang.com/5a4f53af0001b16d02400240.jpg"
+                                            data-name="深度学习" class="">
+                                            <span>深度学习</span>
+                                        </li>
+                                        <li data-tagid="66" data-src="//img2.mukewang.com/5b6933fc0001def002400240.jpg"
+                                            data-name="人工智能" class="">
+                                            <span>人工智能</span>
+                                        </li>
+                                        <li data-tagid="85" data-src="//img3.mukewang.com/5baaf3160001d09c02400240.jpg"
+                                            data-name="计算机视觉" class="">
+                                            <span>计算机视觉</span>
+                                        </li>
+                                        <li data-tagid="87" data-src="//img2.mukewang.com/5baa21e600011a3c02400240.jpg"
+                                            data-name="数据分析&挖掘" class="">
+                                            <span>数据分析&挖掘</span>
+                                        </li>
+                                        <li data-tagid="84" data-src="//img4.mukewang.com/5baa212a0001225002400240.jpg"
+                                            data-name="超级账本" class="">
+                                            <span>超级账本</span>
+                                        </li>
+                                        <li data-tagid="83" data-src="//img4.mukewang.com/5baa19fc000173cf02400240.jpg"
+                                            data-name="以太坊" class="">
+                                            <span>以太坊</span>
+                                        </li>
+                                        <li data-tagid="140" data-src="//img1.mukewang.com/5bab4c430001a6a402400240.jpg"
+                                            data-name="微服务" class="">
+                                            <span>微服务</span>
+                                        </li>
+                                        <li data-tagid="72" data-src="//img3.mukewang.com/5b69333200018ea002400240.jpg"
+                                            data-name="区块链" class="">
+                                            <span>区块链</span>
+                                        </li>
+                                        <li data-tagid="86" data-src="//img.mukewang.com/5baa21b60001eea202400240.jpg"
+                                            data-name="自然语言处理" class="">
+                                            <span>自然语言处理</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sub">
+                                    <label data-id="6" class="">云计算&大数据</label>
+                                    <ul class="clearfix">
+                                        <li data-tagid="21" data-src="//img.mukewang.com/59e96ee90001485b02400240.jpg"
+                                            data-name="云计算" class="">
+                                            <span>云计算</span>
+                                        </li>
+                                        <li data-tagid="104" data-src="//img.mukewang.com/5baaf19000012df002400240.jpg"
+                                            data-name="容器" class="">
+                                            <span>容器</span>
+                                        </li>
+                                        <li data-tagid="105" data-src="//img4.mukewang.com/5baaf26400010e6202400240.jpg"
+                                            data-name="Kubernetes" class="">
+                                            <span>Kubernetes</span>
+                                        </li>
+                                        <li data-tagid="101" data-src="//img4.mukewang.com/5baaf1f900018fed02400240.jpg"
+                                            data-name="OpenStack" class="">
+                                            <span>OpenStack</span>
+                                        </li>
+                                        <li data-tagid="99" data-src="//img.mukewang.com/5baaf21e0001ce6e02400240.jpg"
+                                            data-name="Flink" class="">
+                                            <span>Flink</span>
+                                        </li>
+                                        <li data-tagid="102" data-src="//img.mukewang.com/5baaf1e00001de3c02400240.jpg"
+                                            data-name="AWS" class="">
+                                            <span>AWS</span>
+                                        </li>
+                                        <li data-tagid="103" data-src="//img4.mukewang.com/5baaf1c800012d2c02400240.jpg"
+                                            data-name="阿里云" class="">
+                                            <span>阿里云</span>
+                                        </li>
+                                        <li data-tagid="100" data-src="//img4.mukewang.com/5baa20f40001128002400240.jpg"
+                                            data-name="Storm" class="">
+                                            <span>Storm</span>
+                                        </li>
+                                        <li data-tagid="98" data-src="//img2.mukewang.com/5baa20e00001371a02400240.jpg"
+                                            data-name="Hbase" class="">
+                                            <span>Hbase</span>
+                                        </li>
+                                        <li data-tagid="96" data-src="//img3.mukewang.com/5baa139f0001b72f02400240.jpg"
+                                            data-name="Hadoop" class="">
+                                            <span>Hadoop</span>
+                                        </li>
+                                        <li data-tagid="97" data-src="//img.mukewang.com/5baa13770001fda902400240.jpg"
+                                            data-name="Spark" class="">
+                                            <span>Spark</span>
+                                        </li>
+                                        <li data-tagid="167" data-src="//img.mukewang.com/5bab5ba20001a40802400240.jpg"
+                                            data-name="R语言" class="">
+                                            <span>R语言</span>
+                                        </li>
+                                        <li data-tagid="73" data-src="//img1.mukewang.com/5b6933ae0001400202400240.jpg"
+                                            data-name="Docker" class="">
+                                            <span>Docker</span>
+                                        </li>
+                                        <li data-tagid="141" data-src="//img2.mukewang.com/5b51cb6300015ea202400240.jpg"
+                                            data-name="挖掘" class="">
+                                            <span>挖掘</span>
+                                        </li>
+                                        <li data-tagid="35" data-src="//img1.mukewang.com/59e96e4a0001989102400240.jpg"
+                                            data-name="大数据" class="">
+                                            <span>大数据</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sub">
+                                    <label data-id="7" class="">运维&测试</label>
+                                    <ul class="clearfix">
+                                        <li data-tagid="51" data-src="//img1.mukewang.com/59e96df800014e9902400240.jpg"
+                                            data-name="测试" class="">
+                                            <span>测试</span>
+                                        </li>
+                                        <li data-tagid="20" data-src="//img4.mukewang.com/59e96ef70001954402400240.jpg"
+                                            data-name="Linux" class="">
+                                            <span>Linux</span>
+                                        </li>
+                                        <li data-tagid="106" data-src="//img1.mukewang.com/5baa23840001cbc302400240.jpg"
+                                            data-name="运维" class="">
+                                            <span>运维</span>
+                                        </li>
+                                        <li data-tagid="107" data-src="//img.mukewang.com/5baa234a0001cbc302400240.jpg"
+                                            data-name="运维工具" class="">
+                                            <span>运维工具</span>
+                                        </li>
+                                        <li data-tagid="108" data-src="//img4.mukewang.com/5baa232e0001a21302400240.jpg"
+                                            data-name="功能测试" class="">
+                                            <span>功能测试</span>
+                                        </li>
+                                        <li data-tagid="109" data-src="//img3.mukewang.com/5baa22fc0001c6cf02400240.jpg"
+                                            data-name="性能测试" class="">
+                                            <span>性能测试</span>
+                                        </li>
+                                        <li data-tagid="110" data-src="//img3.mukewang.com/5baa13fb000111e402400240.jpg"
+                                            data-name="自动化测试" class="">
+                                            <span>自动化测试</span>
+                                        </li>
+                                        <li data-tagid="112" data-src="//img.mukewang.com/5baa13ea0001526a02400240.jpg"
+                                            data-name="移动测试" class="">
+                                            <span>移动测试</span>
+                                        </li>
+                                        <li data-tagid="113" data-src="//img4.mukewang.com/5baa13d90001c44a02400240.jpg"
+                                            data-name="安全测试" class="">
+                                            <span>安全测试</span>
+                                        </li>
+                                        <li data-tagid="111" data-src="//img1.mukewang.com/5baa13c90001352902400240.jpg"
+                                            data-name="接口测试" class="">
+                                            <span>接口测试</span>
+                                        </li>
+                                        <li data-tagid="150" data-src="//img4.mukewang.com/5bab5fc90001ff6402400240.jpg"
+                                            data-name="Nginx" class="">
+                                            <span>Nginx</span>
+                                        </li>
+                                        <li data-tagid="136" data-src="//img3.mukewang.com/5bab474b0001d5cd02400240.jpg"
+                                            data-name="自动化运维" class="">
+                                            <span>自动化运维</span>
+                                        </li>
+                                        <li data-tagid="137" data-src="//img.mukewang.com/5bab448e00010be202400240.jpg"
+                                            data-name="中间件" class="">
+                                            <span>中间件</span>
+                                        </li>
+                                        <li data-tagid="144" data-src="//img.mukewang.com/5b51cc0000015ea202400240.jpg"
+                                            data-name="单元测试" class="">
+                                            <span>单元测试</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sub">
+                                    <label data-id="4" class="">数据库</label>
+                                    <ul class="clearfix">
+                                        <li data-tagid="8" data-src="//img1.mukewang.com/59e96fd30001e6e502400240.jpg"
+                                            data-name="MongoDB" class="">
+                                            <span>MongoDB</span>
+                                        </li>
+                                        <li data-tagid="29" data-src="//img3.mukewang.com/59e96e890001d79b02400240.jpg"
+                                            data-name="Oracle" class="">
+                                            <span>Oracle</span>
+                                        </li>
+                                        <li data-tagid="11" data-src="//img2.mukewang.com/59f2cdc30001916a02400240.jpg"
+                                            data-name="MySQL" class="">
+                                            <span>MySQL</span>
+                                        </li>
+                                        <li data-tagid="36" data-src="//img.mukewang.com/59e96e370001ac0202400240.jpg"
+                                            data-name="SQL Server" class="">
+                                            <span>SQL Server</span>
+                                        </li>
+                                        <li data-tagid="64" data-src="//img3.mukewang.com/5bab2129000188b702400240.jpg"
+                                            data-name="NoSql" class="">
+                                            <span>NoSql</span>
+                                        </li>
+                                        <li data-tagid="138" data-src="//img3.mukewang.com/5bab4c0b0001153102400240.jpg"
+                                            data-name="Redis" class="">
+                                            <span>Redis</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sub">
+                                    <label data-id="5" class="">UI设计&多媒体</label>
+                                    <ul class="clearfix">
+                                        <li data-tagid="10" data-src="//img.mukewang.com/59e96fab0001534402400240.jpg"
+                                            data-name="Photoshop" class="">
+                                            <span>Photoshop</span>
+                                        </li>
+                                        <li data-tagid="7" data-src="//img2.mukewang.com/59e96fe20001da2602400240.jpg"
+                                            data-name="Maya" class="">
+                                            <span>Maya</span>
+                                        </li>
+                                        <li data-tagid="9" data-src="//img1.mukewang.com/59e96fbe000168f102400240.jpg"
+                                            data-name="Premiere" class="">
+                                            <span>Premiere</span>
+                                        </li>
+                                        <li data-tagid="40" data-src="//img1.mukewang.com/59e96e1f000178aa02400240.jpg"
+                                            data-name="ZBrush" class="">
+                                            <span>ZBrush</span>
+                                        </li>
+                                        <li data-tagid="47" data-src="//img4.mukewang.com/57172735000162e802400240.jpg"
+                                            data-name="设计" class="">
+                                            <span>设计</span>
+                                        </li>
+                                        <li data-tagid="71" data-src="//img4.mukewang.com/5bab2355000118a702400240.jpg"
+                                            data-name="设计基础" class="">
+                                            <span>设计基础</span>
+                                        </li>
+                                        <li data-tagid="70" data-src="//img4.mukewang.com/5bab232f00016dbf02400240.jpg"
+                                            data-name="设计工具" class="">
+                                            <span>设计工具</span>
+                                        </li>
+                                        <li data-tagid="115" data-src="//img4.mukewang.com/5baa12b30001942a02400240.jpg"
+                                            data-name="产品交互" class="">
+                                            <span>产品交互</span>
+                                        </li>
+                                        <li data-tagid="69" data-src="//img.mukewang.com/5bab260d0001470002400240.jpg"
+                                            data-name="APPUI设计" class="">
+                                            <span>APPUI设计</span>
+                                        </li>
+                                        <li data-tagid="114" data-src="//img2.mukewang.com/5baa16e80001f88e02400240.jpg"
+                                            data-name="模型制作" class="">
+                                            <span>模型制作</span>
+                                        </li>
+                                        <li data-tagid="68" data-src="//img1.mukewang.com/5bab23730001e23502400240.jpg"
+                                            data-name="动效动画" class="">
+                                            <span>动效动画</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sub">
+                                    <label data-id="8" class="">游戏</label>
+                                    <ul class="clearfix">
+                                        <li data-tagid="34" data-src="//img1.mukewang.com/59e96e560001cb2902400240.jpg"
+                                            data-name="Cocos2d-x" class="">
+                                            <span>Cocos2d-x</span>
+                                        </li>
+                                        <li data-tagid="33" data-src="//img.mukewang.com/59e96e6300011c3502400240.jpg"
+                                            data-name="Unity 3D" class="">
+                                            <span>Unity 3D</span>
+                                        </li>
+                                        <li data-tagid="139" data-src="//img1.mukewang.com/5b51c9cf00015ea202400240.jpg"
+                                            data-name="游戏开发" class="">
+                                            <span>游戏开发</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sub">
+                                    <label data-id="11" class="">其它</label>
+                                    <ul class="clearfix">
+                                        <li data-tagid="146" data-src="//img3.mukewang.com/5b51cc1d00015ea202400240.jpg"
+                                            data-name="正则表达式" class="">
+                                            <span>正则表达式</span>
+                                        </li>
+                                        <li data-tagid="143" data-src="//img.mukewang.com/5b51cbf300015ea202400240.jpg"
+                                            data-name="源码" class="">
+                                            <span>源码</span>
+                                        </li>
+                                        <li data-tagid="76" data-src="//img2.mukewang.com/5ab4781a00015ea202400240.jpg"
+                                            data-name="架构" class="">
+                                            <span>架构</span>
+                                        </li>
+                                        <li data-tagid="77" data-src="//img3.mukewang.com/5ab4782700015ea202400240.jpg"
+                                            data-name="安全" class="">
+                                            <span>安全</span>
+                                        </li>
+                                        <li data-tagid="149" data-src="//img2.mukewang.com/5b51cc4a00015ea202400240.jpg"
+                                            data-name="Git" class="">
+                                            <span>Git</span>
+                                        </li>
+                                        <li data-tagid="148" data-src="//img4.mukewang.com/5b51cc3d00015ea202400240.jpg"
+                                            data-name="开源" class="">
+                                            <span>开源</span>
+                                        </li>
+                                        <li data-tagid="147" data-src="//img2.mukewang.com/5b51cc2d00015ea202400240.jpg"
+                                            data-name="设计模式" class="">
+                                            <span>设计模式</span>
+                                        </li>
+                                        <li data-tagid="142" data-src="//img1.mukewang.com/5b51cbd900015ea202400240.jpg"
+                                            data-name="API" class="">
+                                            <span>API</span>
+                                        </li>
+                                        <li data-tagid="145" data-src="//img3.mukewang.com/5b51cc0e00015ea202400240.jpg"
+                                            data-name="操作系统" class="">
+                                            <span>操作系统</span>
+                                        </li>
+                                        <li data-tagid="78" data-src="//img2.mukewang.com/5ab478c700015ea202400240.jpg"
+                                            data-name="活动" class="">
+                                            <span>活动</span>
+                                        </li>
+                                        <li data-tagid="169" data-src="//img2.mukewang.com/5bac52d400015ea202400240.jpg"
+                                            data-name="编解码" class="">
+                                            <span>编解码</span>
+                                        </li>
+                                        <li data-tagid="168" data-src="//img4.mukewang.com/5bac52a800015ea202400240.jpg"
+                                            data-name="ffmpeg" class="">
+                                            <span>ffmpeg</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="sub">
+                                    <label data-id="10" class="">职场生活</label>
+                                    <ul class="clearfix">
+                                        <li data-tagid="49" data-src="//img3.mukewang.com/572af003000162e802400240.jpg"
+                                            data-name="产品" class="">
+                                            <span>产品</span>
+                                        </li>
+                                        <li data-tagid="67" data-src="//img.mukewang.com/5ab4754700015ea202400240.jpg"
+                                            data-name="面试" class="">
+                                            <span>面试</span>
+                                        </li>
+                                        <li data-tagid="166" data-src="//img.mukewang.com/5bab4cc000015ea202400240.jpg"
+                                            data-name="搞笑" class="">
+                                            <span>搞笑</span>
+                                        </li>
+                                        <li data-tagid="74" data-src="//img3.mukewang.com/5ab477e700015ea202400240.jpg"
+                                            data-name="幽默段子" class="">
+                                            <span>幽默段子</span>
+                                        </li>
+                                        <li data-tagid="48" data-src="//img2.mukewang.com/571dfde5000162e802400240.jpg"
+                                            data-name="征文" class="">
+                                            <span>征文</span>
+                                        </li>
+                                        <li data-tagid="75" data-src="//img.mukewang.com/5ab477f900015ea202400240.jpg"
+                                            data-name="资讯" class="">
+                                            <span>资讯</span>
+                                        </li>
+                                        <li data-tagid="46" data-src="//img3.mukewang.com/5716f245000162e802400240.jpg"
+                                            data-name="职场生活" class="">
+                                            <span>职场生活</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tagpop-bottom">
+                        <!-- 暂时不要只查看关注标签的按钮 -->
+                        <!-- <div class="switch-box tag-switch-box">
+                            <div class="switch js-sub-switch ">
+                                <div class="fill">
+                                    <div class="outer"></div>
+                                </div>
+                                <div class="inner"></div>
+                            </div>
+                            <span>只看已关注标签下的手记</span>
+                        </div> -->
+                        <a href="javascript:;" class="tag-save-btn next">下一步</a>
+                    </div>
+                </div>
+
+                <div id="author-pop" class="js-tagpop-box modal hide">
+                    <div class="tagpop-top-box clearfix">
+                        <h3 class="tagpop-title">根据你的选择，为你推荐了相关作者</h3>
+                        <p class="tagpop-desc">他们经常更新你所感兴趣的文章</p>
+                    </div>
+                    <div class="tagpop-nano tagpop-content-box clearfix">
+                        <div class="author-item-right nano-content">
+                            <div class="author-list clearfix">
+                                <ul class="sub clearfix">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tagpop-bottom">
+                        <a href="javascript:;" class="author-save-btn">完成</a>
+                    </div>
+                </div>
+                <div class="articleCon js-usercard-box">
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/5c35b57c0001d18302430269-200-200.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/272795" target="_blank" class="title"><p>
+                                【必备干货】Java从入门到进阶架构师，照着这个路线学习妥妥的！</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="272795">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/be"
+                                                                         target="_blank">后端开发</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>34488</span>
+                                    </div>
+                                    <a href="/u/4321686" data-fuid="4321686" class="nickName l js-usercard-dialog"
+                                       data-userid="4321686" target="_blank">
+                                        慕课网官方_运营中心
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/3"
+                                                               target="_blank"><span>JAVA</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/62"
+                                                                                               target="_blank"><span>SpringBoot</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/116"
+                                                                                               target="_blank"><span>SSM</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    01.09
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/5bf3a0c10001bc2d02720272-200-200.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/296059" target="_blank" class="title"><p>如何成为公司独当一面的工程师</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="296059">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/work"
+                                                                         target="_blank">职场生活</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>200</span>
+                                    </div>
+                                    <a href="/u/3017249" data-fuid="3017249" class="nickName l js-usercard-dialog"
+                                       data-userid="3017249" target="_blank">
+                                        ustbhuangyi
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/46" target="_blank"><span>职场生活</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.20
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/pic13.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/295182" target="_blank" class="title"><p>姚半仙：微服务架构会面临哪些技术问题？</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="295182">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/be"
+                                                                         target="_blank">后端开发</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>310</span>
+                                    </div>
+                                    <a href="/u/8010388" data-fuid="8010388" class="nickName l js-usercard-dialog"
+                                       data-userid="8010388" target="_blank">
+                                        架构师讲师团
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/3"
+                                                               target="_blank"><span>JAVA</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.08
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 第3,7位专栏 -->
+                    <div class="clearfix column">
+                        <a href="/read/56" target="_blank">
+                            <div class="img l"
+                                 style="background-image:url(../static/images/5dd1d4300001b12305400720.jpg)">
+                            </div>
+                        </a>
+                        <div class="text_con l">
+                            <a href="/read/56" target="_blank">
+                                <p class="title">如何设计一个Java秒杀系统</p>
+                            </a>
+                            <div class="info">
+                                <span>西安颜群 / JAVA开发工程师</span>
+                                <span>46人已购买</span>
+                                <a href="/article/tag/3"><span class="label">JAVA</span></a>
+                            </div>
+                            <div class="price_con clearfix">
+                                <a href="javascript:;" onclick="$('#js-signin-btn').click();">
+                                    <div class="goBuy l">马上订阅</div>
+                                </a>
+
+                                <p class="sale l">限时优惠 ¥ 46.00</p>
+                                <p class="sale-ori l">原价 ¥ 58.00</p>
+
+                                <p class="r">专栏</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/5bf39f6400012ec102720272-200-200.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/296124" target="_blank" class="title"><p>《前端实战总结》之使用CSS3实现酷炫的3D旋转透视</p>
+                            </a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="296124">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/fe"
+                                                                         target="_blank">前端开发</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>86</span>
+                                    </div>
+                                    <a href="/u/7944320" data-fuid="7944320" class="nickName l js-usercard-dialog"
+                                       data-userid="7944320" target="_blank">
+                                        徐小夕
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/14" target="_blank"><span>Html5</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/25"
+                                                                                               target="_blank"><span>CSS3</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/68"
+                                                                                               target="_blank"><span>动效动画</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.21
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/5bf3a0c10001bc2d02720272-200-200.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/296058" target="_blank" class="title"><p>前后端分离，我怎么就选择了 Spring Boot + Vue
+                                技术栈</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="296058">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/be"
+                                                                         target="_blank">后端开发</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>252</span>
+                                    </div>
+                                    <a href="/u/1317372" data-fuid="1317372" class="nickName l js-usercard-dialog"
+                                       data-userid="1317372" target="_blank">
+                                        江南一点雨
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/3"
+                                                               target="_blank"><span>JAVA</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/62"
+                                                                                               target="_blank"><span>SpringBoot</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/129"
+                                                                                               target="_blank"><span>Spring</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.20
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/5d006f600001620802500250-200-200.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/287838" target="_blank" class="title"><p>【干货合辑】这些新热技术，帮你补救90%的年终目标！</p>
+                            </a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="287838">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/work"
+                                                                         target="_blank">职场生活</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>19525</span>
+                                    </div>
+                                    <a href="/u/4321686" data-fuid="4321686" class="nickName l js-usercard-dialog"
+                                       data-userid="4321686" target="_blank">
+                                        慕课网官方_运营中心
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/13"
+                                                               target="_blank"><span>Node.js</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/105"
+                                                                                               target="_blank"><span>Kubernetes</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/132"
+                                                                                               target="_blank"><span>Kotlin</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    06.12
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 第3,7位专栏 -->
+                    <div class="clearfix column">
+                        <a href="/read/54" target="_blank">
+                            <div class="img l"
+                                 style="background-image:url(../static/images/5da923d60001a92f05400720.jpg)">
+                            </div>
+                        </a>
+                        <div class="text_con l">
+                            <a href="/read/54" target="_blank">
+                                <p class="title">网络协议那些事儿</p>
+                            </a>
+                            <div class="info">
+                                <span>Oscar / 软件工程师</span>
+                                <span>478人已购买</span>
+                                <a href="/article/tag/148"><span class="label">开源</span></a>
+                                <i class="imv2-dot_samll"></i>
+                                <a href="/article/tag/76"><span class="label">架构</span></a>
+                            </div>
+                            <div class="price_con clearfix">
+                                <a href="javascript:;" onclick="$('#js-signin-btn').click();">
+                                    <div class="goBuy l">马上订阅</div>
+                                </a>
+
+                                <p class="sale l">限时优惠 ¥ 49.00</p>
+                                <p class="sale-ori l">原价 ¥ 68.00</p>
+
+                                <p class="r">专栏</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/pic13.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/296052" target="_blank" class="title"><p>利用python-hashlib 做接口验证token</p>
+                            </a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="296052">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/be"
+                                                                         target="_blank">后端开发</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>123</span>
+                                    </div>
+                                    <a href="/u/6854697" data-fuid="6854697" class="nickName l js-usercard-dialog"
+                                       data-userid="6854697" target="_blank">
+                                        deweizhang
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/18"
+                                                               target="_blank"><span>Python</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.20
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/pic2.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/296131" target="_blank" class="title"><p>分享 — 程序员如何快速进阶</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="296131">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/other"
+                                                                         target="_blank">其它</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>24</span>
+                                    </div>
+                                    <a href="/u/5482011" data-fuid="5482011" class="nickName l js-usercard-dialog"
+                                       data-userid="5482011" target="_blank">
+                                        晁州
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/46" target="_blank"><span>职场生活</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.21
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/5dd50752000161e111310878-200-200.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/296086" target="_blank" class="title"><p>Margin 的特异之处</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="296086">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/fe"
+                                                                         target="_blank">前端开发</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>144</span>
+                                    </div>
+                                    <a href="/u/1281052" data-fuid="1281052" class="nickName l js-usercard-dialog"
+                                       data-userid="1281052" target="_blank">
+                                        为爱心太软
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/5"
+                                                               target="_blank"><span>Html/CSS</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/25"
+                                                                                               target="_blank"><span>CSS3</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/58"
+                                                                                               target="_blank"><span>深度学习</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.20
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/pic11.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/295990" target="_blank" class="title"><p>
+                                利用python库---mkdocs打造自己的简历网站或文档网站，不会</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="295990">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/be"
+                                                                         target="_blank">后端开发</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>75</span>
+                                    </div>
+                                    <a href="/u/6854697" data-fuid="6854697" class="nickName l js-usercard-dialog"
+                                       data-userid="6854697" target="_blank">
+                                        deweizhang
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/14" target="_blank"><span>Html5</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/18"
+                                                                                               target="_blank"><span>Python</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/150"
+                                                                                               target="_blank"><span>Nginx</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.19
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/c5fc48722c3046e0a587caaceaff4465.gif">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/295509" target="_blank" class="title"><p>
+                                手把手教你如何用Fiddler抓取手机数据包（iOS+Android）</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="295509">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/tools" target="_blank">工具资源</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>134</span>
+                                    </div>
+                                    <a href="/u/6088005" data-fuid="6088005" class="nickName l js-usercard-dialog"
+                                       data-userid="6088005" target="_blank">
+                                        不正经程序员
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/107" target="_blank"><span>运维工具</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.12
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/5bf3a04a00011d1102720272-200-200.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/296041" target="_blank" class="title"><p>【特别推送】搭建一个与&quot;技术&quot;无关的博客网站(Ja</p>
+                            </a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="296041">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/be"
+                                                                         target="_blank">后端开发</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>309</span>
+                                    </div>
+                                    <a href="/u/6609221" data-fuid="6609221" class="nickName l js-usercard-dialog"
+                                       data-userid="6609221" target="_blank">
+                                        沉晓
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/3"
+                                                               target="_blank"><span>JAVA</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.20
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/5dd3588600010bf510520672-200-200.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/295945" target="_blank" class="title"><p>【扒一扒】彻底理解 ES6 Iterator</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="295945">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/fe"
+                                                                         target="_blank">前端开发</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>479</span>
+                                    </div>
+                                    <a href="/u/7838339" data-fuid="7838339" class="nickName l js-usercard-dialog"
+                                       data-userid="7838339" target="_blank">
+                                        zz_jesse
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/17"
+                                                               target="_blank"><span>JavaScript</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.19
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/5bf3a0f60001eca102720272-200-200.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/296006" target="_blank" class="title"><p>一文带你深入了解 Redis 的持久化方式及其原理</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="296006">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/be"
+                                                                         target="_blank">后端开发</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>71</span>
+                                    </div>
+                                    <a href="/u/4880222" data-fuid="4880222" class="nickName l js-usercard-dialog"
+                                       data-userid="4880222" target="_blank">
+                                        平头哥的技术博文
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/138"
+                                                               target="_blank"><span>Redis</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.19
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/pic17.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/295036" target="_blank" class="title"><p>
+                                【干货合辑】大数据难，难于上青天？快接好这套学习宝典迎难而上！</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="295036">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/clouddata" target="_blank">云计算/大数据</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>2677</span>
+                                    </div>
+                                    <a href="/u/4321686" data-fuid="4321686" class="nickName l js-usercard-dialog"
+                                       data-userid="4321686" target="_blank">
+                                        慕课网官方_运营中心
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/35"
+                                                               target="_blank"><span>大数据</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/105"
+                                                                                               target="_blank"><span>Kubernetes</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.06
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="{% static 'picture/pic10.jpg' %}">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/295149" target="_blank" class="title"><p>【干货合辑】计算机基础都学啥？五个方向带你上路</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="295149">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/work"
+                                                                         target="_blank">职场生活</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>4199</span>
+                                    </div>
+                                    <a href="/u/4321686" data-fuid="4321686" class="nickName l js-usercard-dialog"
+                                       data-userid="4321686" target="_blank">
+                                        慕课网官方_运营中心
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/20" target="_blank"><span>Linux</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/65"
+                                                                                               target="_blank"><span>算法</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/85"
+                                                                                               target="_blank"><span>计算机视觉</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.08
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/5dd230be00019aee11000917-200-200.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/295862" target="_blank" class="title"><p>TypeScript真香系列-接口篇</p></a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="295862">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/fe"
+                                                                         target="_blank">前端开发</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>793</span>
+                                    </div>
+                                    <a href="/u/1190472" data-fuid="1190472" class="nickName l js-usercard-dialog"
+                                       data-userid="1190472" target="_blank">
+                                        ikoala
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/13"
+                                                               target="_blank"><span>Node.js</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/17"
+                                                                                               target="_blank"><span>JavaScript</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/67"
+                                                                                               target="_blank"><span>面试</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    11.18
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="article-lwrap clearfix">
+                        <div class="imgCon l">
+                            <img src="../static/picture/pic8.jpg">
+                        </div>
+
+                        <div class="list-content l">
+                            <a href="/article/294547" target="_blank" class="title"><p>【测试干货合辑】从功能测试到自动化测试，大牛带你轻松进阶！</p>
+                            </a>
+                            <div class="collect">
+                                <span class="js-collect" data-collect="0" data-id="294547">收藏</span>
+
+
+                            </div>
+                            <div class="list-bottom clearfix">
+                                <!-- 只有推荐页 七日三十日 人们文章，标签页有栏目标签 -->
+                                <div class="labels-area l clearfix">
+                                    <label class="moco-label label l"><a href="/article/other"
+                                                                         target="_blank">其它</a></label>
+
+                                    <div class="browseNum l">
+                                        <i class="imv2-visibility"></i>
+                                        <span>2957</span>
+                                    </div>
+                                    <a href="/u/4321686" data-fuid="4321686" class="nickName l js-usercard-dialog"
+                                       data-userid="4321686" target="_blank">
+                                        慕课网官方_运营中心
+                                    </a>
+
+                                    <span class="skill clearfix">
+                                                            <a href="/article/tag/108" target="_blank"><span>功能测试</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/110"
+                                                                                               target="_blank"><span>自动化测试</span></a>
+                                                                    <i class="imv2-dot_samll"></i>
+                                                                                            <a href="/article/tag/111"
+                                                                                               target="_blank"><span>接口测试</span></a>
+                                                                                    </span>
+                                </div>
+                                <div class="createTime r">
+                                    10.30
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feed-loading js-feed-loading" data-marking="index" data-type="0" data-tagid="">
+                    <i class='imv2-loading'></i><span>正在加载中</span>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="right_personalization js-right_personalization r">
+            <!-- 除了动态关注以外栏目 -->
+            <!-- 推荐页需要7日精选 -->
+            <!--精选文章-->
+            <div class="carefully_selected">
+                <a href="/article/excellent?type=1" target="_blank">
+                    <div class="sevenImg"></div>
+                </a>
+                <a href="/article/excellent?type=2" target="_blank">
+                    <div class="thirtyImg"></div>
+                </a>
+            </div>
+            <!-- 推荐页需要专栏推荐 -->
+            <!--推荐专栏 手记首页右侧和手记详情页右侧使用此模块-->
+            <div class="column_recommend js-column_recommend">
+                <div class="title">
+                    慕课专栏
+                    <a href="/read" target="_blank" class="more">更多<i class="imv2-arrow2_r"></i></a>
+                </div>
+                <ul>
+                    <li class="clearfix">
+                        <a href="/read/55?mc_marking=94b81504afdd61d830590785395e387a&mc_channel=sjsyzl"
+                           target="_blank">
+                            <div class="img l"
+                                 style="background-image:url(../static/images/5db2d80400012c6305400720.jpg)">
+
+                            </div>
+                        </a>
+                        <div class="text_con l">
+                            <a href="/read/55?mc_marking=94b81504afdd61d830590785395e387a&mc_channel=sjsyzl"
+                               target="_blank">
+                                <p class="title">码出规范：《阿里巴巴Java开发手册》详解</p>
+                            </a>
+                            <div class="info">
+                                <span>共38小节</span>
+                                <i class="imv2-dot_samll"></i>
+                                <span>496人已购买</span>
+                            </div>
+                            <div class="price_con clearfix">
+                                <a href="javascript:;" onclick="$('#js-signin-btn').click();">
+                                    <div class="goBuy r">马上订阅</div>
+                                </a>
+
+                                <p class="sale l">¥ 49.00</p>
+                                <p class="sale-ori l">68.00</p>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <a href="/read/53?mc_marking=94b81504afdd61d830590785395e387a&mc_channel=sjsyzl"
+                           target="_blank">
+                            <div class="img l"
+                                 style="background-image:url(../static/images/5da047880001c8a905400720.jpg)">
+
+                            </div>
+                        </a>
+                        <div class="text_con l">
+                            <a href="/read/53?mc_marking=94b81504afdd61d830590785395e387a&mc_channel=sjsyzl"
+                               target="_blank">
+                                <p class="title">设计模式深度解析34讲</p>
+                            </a>
+                            <div class="info">
+                                <span>共35小节</span>
+                                <i class="imv2-dot_samll"></i>
+                                <span>625人已购买</span>
+                            </div>
+                            <div class="price_con clearfix">
+                                <a href="javascript:;" onclick="$('#js-signin-btn').click();">
+                                    <div class="goBuy r">马上订阅</div>
+                                </a>
+
+                                <p class="ori l">¥ 68.00</p>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="articleIndexRight"></div>
+
+            <div class="hot_article js-hot_article">
+                <!-- 热门文章 由category.js append dom -->
+            </div>        <!--推荐作者-->
+            <div class="recommended_author js-recommon-people  js-usercard-box">
+                <!--category.js append dom-->
+            </div>
+            <!-- 关注动态栏目只有写文章，推荐作者 -->
+            <!-- 只有推荐栏目才有七日精选 -->
+        </div>
+        <!-- article-right -->
+        <!-- article-left-menu --></div>
+
+</div>
+
+<div id="footer" data="article,index">
+    <div class="waper">
+        <div class="footerwaper clearfix">
+            <div class="followus r">
+                <a class="followus-weixin" href="javascript:;" target="_blank" title="微信">
+                    <div class="flw-weixin-box"></div>
+                </a>
+                <a class="followus-weibo" href="http://weibo.com/u/3306361973" target="_blank" title="新浪微博"></a>
+                <a class="followus-qzone" href="http://user.qzone.qq.com/1059809142/" target="_blank" title="QQ空间"></a>
+            </div>
+            <div class="footer_intro l">
+                <div class="footer_link">
+                    <ul>
+                        <li><a href="//www.imooc.com/" target="_blank">网站首页</a></li>
+                        <li><a href="/index/companytrain" target="_blank" title="企业合作">企业合作</a></li>
+                        <li><a href="/about/job" target="_blank">人才招聘</a></li>
+                        <li><a href="/about/contact" target="_blank">联系我们</a></li>
+                        <li><a href="/about/recruit" target="_blank">讲师招募</a></li>
+                        <li><a href="/help" target="_blank">帮助中心</a></li>
+                        <li><a href="/user/feedback" target="_blank">意见反馈</a></li>
+                        <li><a href="http://daxue.imooc.com/" target="_blank">慕课大学</a></li>
+                        <li><a href="https://git.imooc.com" target="_blank">代码托管</a></li>
+                        <li><a href="/about/friendly" target="_blank">友情链接</a></li>
+                        <!--  <li><a href="/corp/index" target="_blank">合作专区</a></li>
+                         <li><a href="/about/us" target="_blank">关于我们</a></li> -->
+                    </ul>
+                </div>
+                <p>Copyright © 2019 imooc.com All Rights Reserved | 京ICP备 12003892号-11 <a
+                        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802030151"
+                        style="color: #93999F;margin:0 5px;" target="_blank"><i
+                        class="beian"></i>京公网安备11010802030151号</a> 北京奥鹏文化传媒有限公司</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="J_GotoTop" class="elevator">
+    <a href="/user/feedback" class="elevator-msg" target="_blank">
+        <i class="icon-feedback"></i>
+        <span class="">意见反馈</span>
+    </a>
+    <a href="//order.imooc.com/pay/sharegoods" class="elevator-dist" style="display: none;" target="_blank">
+        <i class=""></i>
+        <span class="">分销返利</span>
+    </a>
+    <!-- <a href="//www.imooc.com/act/invite" class="elevator-dist" target="_blank">
+        <i class=""></i>
+        <span class="">邀请有奖</span>
+    </a> -->
+    <a href="/help" class="elevator-faq" target="_blank">
+        <i class="icon-ques"></i>
+        <span class="">帮助中心</span>
+    </a>
+    <a href="//www.imooc.com/mobile/app" target="_blank" class="elevator-app">
+        <i class="icon-appdownload"></i>
+        <span class="">APP下载</span>
+        <div class="elevator-app-box"></div>
+    </a>
+    <a href="javascript:void(0)" class="elevator-weixin no-goto" id="js-elevator-weixin">
+        <i class="icon-wxgzh"></i>
+        <span class="">官方微信</span>
+        <div class="elevator-weixin-box"></div>
+    </a>
+    <a href="javascript:void(0)" class="elevator-top no-goto" style="display:none" id="backTop">
+        <i class="icon-up2"></i>
+        <span class="">返回顶部</span>
+    </a>
+</div>
+
+
+<div id="globalRightFloat"></div>
+
+
+<!--script-->
+<script type="text/javascript" src="../static/js/error.js"></script>
+<script src="../static/js/ssologin.js"></script>
+<script type="text/javascript" src="../static/js/sea.js"></script>
+<script type="text/javascript" src="../static/js/sea_config.js"></script>
+<script type="text/javascript">seajs.use("/static/page/" + OP_CONFIG.module + "/" + OP_CONFIG.page);</script>
+
+<script type="text/javascript" src="../static/js/dist-zhuge.js"></script>
+
+<script type="text/javascript">seajs.use("/static/page/common/advertiseCheck.js");</script>
+
+<script>
+    //动态加载advertisementReportjs
+
+    var checkJQ = function () {
+        // console.log(typeof jQuery)
+        if (typeof jQuery != 'undefined') {
+            clearInterval(timer);
+            var scr = document.createElement('script');
+            scr.type = "text/javascript";
+            scr.src = "/static/page/common/advertisementReport.js";
+            document.body.appendChild(scr);
+
+        }
+    }
+    var timer = setInterval(checkJQ, 1000);
+
+</script>
+
+
+<div style="display: none">
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f0cfcccd7b1393990c78efdeebff3968";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        (function (d) {
+            window.bd_cpro_rtid = "rHT4P1c";
+            var s = d.createElement("script");
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = location.protocol + "//cpro.baidu.com/cpro/ui/rt.js";
+            var s0 = d.getElementsByTagName("script")[0];
+            s0.parentNode.insertBefore(s, s0);
+        })(document);
+    </script>
+    <script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                {#bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';#}
+            } else {
+                {#bp.src = 'http://push.zhanzhang.baidu.com/push.js';#}
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</div>
+</body>
+</html>

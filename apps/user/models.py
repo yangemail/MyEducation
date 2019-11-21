@@ -10,15 +10,17 @@ from course.models import Course
 
 class UserProfile(AbstractUser):
     nick_name = models.CharField(max_length=50, null=True, blank=True, verbose_name='昵称')
-    birthday = models.DateField(null=True, blank=True, verbose_name='生日')
-    gender = models.CharField(choices=(('M', '男'), ('F', '女')), null=True, blank=True, max_length=1, verbose_name='性别')
-    address = models.CharField(max_length=100, null=True, blank=True, verbose_name='地址')
-    mobile = models.CharField(max_length=11, null=True, blank=True)
     # image = models.ImageField(upload_to='image/%Y/%m', default='image/default.png', max_length=100)
     avatar = models.ImageField(upload_to='avatar/%Y/%m', default='avatar/default.png', max_length=200,
                                verbose_name='用户头像')
-    study_time = models.PositiveIntegerField(default='0', verbose_name='学习时长（min)')
+    gender = models.CharField(choices=(('M', '男'), ('F', '女')), null=True, blank=True, max_length=1, verbose_name='性别')
+    # qq = models.CharField(max_length=20, null=True, blank=True, verbose_name='QQ号码')
+    mobile = models.CharField(max_length=11, null=True, blank=True, unique=True, verbose_name='手机号码')
+    birthday = models.DateField(null=True, blank=True, verbose_name='生日')
+    address = models.CharField(max_length=100, null=True, blank=True, verbose_name='地址')
     url = models.URLField(max_length=100, blank=True, null=True, verbose_name='个人网页地址')
+
+    study_time = models.PositiveIntegerField(default='0', verbose_name='学习时长（min)')
 
     # course = models.ManyToManyField(Course, verbose_name='课程') # 学生与课程多对多，课程为主表，学生为子表，所以关系写到子表上
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
