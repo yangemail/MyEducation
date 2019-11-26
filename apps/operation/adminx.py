@@ -5,7 +5,7 @@
 
 import xadmin
 
-from .models import UserAsk, CourseComment, UserFavorite, UserMessage, UserCourse
+from .models import UserAsk, CourseComment, UserFavorite, UserMessage, UserCourse, TutorialComment, ArticleComment
 
 
 class UserAskAdmin(object):
@@ -18,6 +18,18 @@ class CourseCommentAdmin(object):
     list_display = ['user', 'course', 'comments', 'created_time', 'last_modified_time']
     search_fields = ['user', 'course', 'comments', ]
     list_filter = ['user', 'course', 'comments', 'created_time', 'last_modified_time']
+
+
+class TutorialCommentAdmin(object):
+    list_display = ['user', 'tutorial', 'comments', 'pid', 'created_time']
+    search_fields = ['user', 'tutorial', 'comments', 'pid', ]
+    list_filter = ['user', 'tutorial', 'comments', 'pid', 'created_time']
+
+
+class ArticleCommentAdmin(object):
+    list_display = ['user', 'article', 'comments', 'pid', 'created_time']
+    search_fields = ['user', 'article', 'comments', 'pid', ]
+    list_filter = ['user', 'article', 'comments', 'pid', 'created_time']
 
 
 class UserFavoriteAdmin(object):
@@ -39,7 +51,11 @@ class UserCourseAdmin(object):
 
 
 xadmin.site.register(UserAsk, UserAskAdmin)
+
 xadmin.site.register(CourseComment, CourseCommentAdmin)
+xadmin.site.register(TutorialComment, TutorialCommentAdmin)
+xadmin.site.register(ArticleComment, ArticleCommentAdmin)
+
 xadmin.site.register(UserFavorite, UserFavoriteAdmin)
 xadmin.site.register(UserMessage, UserMessageAdmin)
 xadmin.site.register(UserCourse, UserCourseAdmin)

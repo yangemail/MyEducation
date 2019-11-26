@@ -25,15 +25,13 @@ class ArticleDetailView(View):
         article = Article.objects.get(id=int(article_id))
 
         # 增加一次文章点击数
-        article.click_nums +=1
+        article.click_nums += 1
         article.save()
 
         # 是否收藏文章
         has_fav_article = False
         # 是否收藏机构
         has_fav_org = False
-
-
 
         return render(request, 'blog/article_detail.html', {})
 
@@ -141,9 +139,20 @@ class TutorialArticleListView(View):
 class TutorialCommentsView(View):
     def get(self, request, tutorial_id):
         tutorial = Tutorial.objects.get(id=int(tutorial_id))
+
+        # 学习过该课程的同学还学习过的课程
+        user_tutorials = UserTutorial.objects.filter(tutorial=tutorial)  # 学习过该教程的所有的同学
+        user_ids = [user_tutorial.user.id for user_tutorial in user_tutorials]  # 获取学习过该课程的同学们的ID
+        all_user_tutorials = UserTutorial.objects.filter(user_id__in=user_ids)  # 获取以上学员学习的全部教程
+        # 取出所有教程ID
+        tutorial_ids = [user_tutorial.tutorial.id for user_tutorial in all_user_tutorials]
+        # 获取用户学过的其它课程-前5个
+        related_tutorials = Tutorial.objects.filter(id__in=tutorial_ids).order_by('-click_nums')[:5]
+
         # TODO: Add resources
         all_comments = TutorialComment.objects.filter(tutorial=tutorial)
         return render(request, 'blog/tutorial_comment.html', {
             'tutorial': tutorial,
             'all_comments': all_comments,
+            'related_tutorials': related_tutorials,
         })
