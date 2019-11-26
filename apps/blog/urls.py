@@ -1,11 +1,19 @@
 from django.urls import path
 
-from blog.views import BlogListView, BlogIndexView
+from blog.views import ArticleIndexView, ArticleListView, ArticleDetailView
+from blog.views import TutorialListView, TutorialDetailView, TutorialArticleListView, TutorialCommentsView
 
 urlpatterns = [
-    # 博客列表页
-    path('index/', BlogIndexView.as_view(), name='blog_index'),
-    path('list/', BlogListView.as_view(), name='blog_list'),
+    # 文章列表页
+    path('article/index/', ArticleIndexView.as_view(), name='blog_article_index'),
+    path('article/list/', ArticleListView.as_view(), name='blog_article_list'),
+    path('article/detail/<int:article_id>', ArticleDetailView.as_view(), name='blog_article_detail'),
+
+    # 教程列表页
+    path('tutorial/list/', TutorialListView.as_view(), name='blog_tutorial_list'),
+    path('tutorial/detail/<int:tutorial_id>/', TutorialDetailView.as_view(), name='blog_tutorial_detail'),
+    path('tutorial/info/<int:tutorial_id>/', TutorialArticleListView.as_view(), name='blog_tutorial_article_list'),
+    path('tutorial/comments/<int:tutorial_id>/', TutorialCommentsView.as_view(), name='blog_tutorial_comments'),
 
     # path('detail/<int:course_id>/', CourseDetailView.as_view(), name='course_detail'),
     # path('info/<int:course_id>/', CourseInfoView.as_view(), name='course_info'),

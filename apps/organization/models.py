@@ -28,7 +28,8 @@ class CourseOrganization(models.Model):
     address = models.CharField(max_length=150, verbose_name='机构地址')
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='所在城市外键')
     student_nums = models.IntegerField(default=0, verbose_name='学习人数')
-    course_nums = models.IntegerField(default=0, verbose_name='课程数')
+    course_nums = models.PositiveIntegerField(default=0, verbose_name='课程数量')
+    tutorial_nums = models.PositiveIntegerField(default=0, verbose_name='教程数量')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
     last_modified_time = models.DateTimeField(auto_now=True, verbose_name='最后修改时间')
 

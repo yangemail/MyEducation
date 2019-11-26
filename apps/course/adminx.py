@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# -*- coding:utf-8 -*-
-# author: Yang Zhang
-# site:
-
 import xadmin
 
 from .models import Course, Lesson, Video, CourseResource, BannerCourse

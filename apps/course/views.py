@@ -1,14 +1,13 @@
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render
-
 # Create your views here.
 from django.views.generic.base import View
-from django.db.models import Q
-from pure_pagination import Paginator, EmptyPage, PageNotAnInteger, InvalidPage
 
-from .models import CourseOrganization, Course, CourseResource, Video
 from operation.models import UserFavorite, CourseComment, UserCourse
+from pure_pagination import Paginator, EmptyPage, PageNotAnInteger, InvalidPage
 from utils.mixin_utils import LoginRequiredMixin
+from .models import Course, CourseResource, Video
 
 
 class CourtListView(View):
@@ -19,10 +18,10 @@ class CourtListView(View):
         search_keywords = request.GET.get('keywords', '')
         if search_keywords:
             all_courses = all_courses.filter(Q(name__icontains=search_keywords)
-                                             |Q(desc__icontains=search_keywords)
-                                             |Q(detail__icontains=search_keywords))
+                                             | Q(desc__icontains=search_keywords)
+                                             | Q(detail__icontains=search_keywords))
 
-        # 筛选功能
+        # 课程列表页排序功能
         sort = request.GET.get('sort', '')
         if sort:
             if sort == 'students':
@@ -82,7 +81,7 @@ class CourseDetailView(View):
         })
 
 
-class CourseInfoView(LoginRequiredMixin, View):
+class CourseVideoListView(LoginRequiredMixin, View):
     def get(self, request, course_id):
         course = Course.objects.get(id=int(course_id))
         course.students += 1
@@ -104,7 +103,7 @@ class CourseInfoView(LoginRequiredMixin, View):
         related_courses = Course.objects.filter(id__in=course_ids).order_by('-click_nums')[:5]  # 获取相关课程-前5个
 
         all_resources = CourseResource.objects.filter(course=course)
-        return render(request, 'course/course-video.html', {
+        return render(request, 'course/course_video_list.html', {
             'course': course,
             'course_resources': all_resources,
             'related_courses': related_courses,
@@ -145,7 +144,7 @@ class CourseAddCommentView(View):
 # 视频播放页面
 class VideoPlayView(View):
     def get(self, request, video_id):
-        video = Video.objects.get(id = int(video_id))
+        video = Video.objects.get(id=int(video_id))
 
         course = video.lesson.course
         course.students += 1
@@ -171,5 +170,5 @@ class VideoPlayView(View):
             'course': course,
             'course_resources': all_resources,
             'related_courses': related_courses,
-            'video':video,
+            'video': video,
         })

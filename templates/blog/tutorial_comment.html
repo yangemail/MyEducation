@@ -7,9 +7,9 @@
             <div class="crumbs">
                 <ul>
                     <li><a href="/">首页</a>></li>
-                    <li><a href="{% url 'course:course_list' %}">公开课程</a>></li>
-                    <li><a href="{% url 'course:course_detail' course.id %}">课程详情</a>></li>
-                    <li>课程评论</li>
+                    <li><a href="{% url 'blog:blog_tutorial_list' %}">公开教程</a>></li>
+                    <li><a href="{% url 'blog:blog_tutorial_detail' tutorial.id %}">教程详情</a>></li>
+                    <li>教程评论</li>
                 </ul>
             </div>
         </div>
@@ -32,21 +32,21 @@
                 <div style="height: 15px" class="path">
                 </div>
                 <div class="hd">
-                    <h2 class="l">{{ course.name }}</h2>
+                    <h2 class="l">{{ tutorial.name }}</h2>
                 </div>
                 <div class="statics clearfix">
                     <div class="static-item ">
-                        <span class="meta-value"><strong>{{ course.get_degree_display }}</strong></span>
+                        <span class="meta-value"><strong>{{ tutorial.get_degree_display }}</strong></span>
                         <span class="meta">难度</span>
                         <em></em>
                     </div>
                     <div class="static-item static-time">
-                        <span class="meta-value">{{ course.learn_times }}分钟</span>
+                        <span class="meta-value">{{ tutorial.learn_times }}分钟</span>
                         <span class="meta">时长</span>
                         <em></em>
                     </div>
                     <div class="static-item">
-                        <span class="meta-value"><strong>{{ course.students }}</strong></span>
+                        <span class="meta-value"><strong>{{ tutorial.students }}</strong></span>
                         <span class="meta">学习人数</span>
                         <em></em>
                     </div>
@@ -61,9 +61,9 @@
                         <div class="mod-tab-menu">
                             <ul class="course-menu clearfix">
                                 <li><a class="ui-tabs-active " id="learnOn"
-                                       href="{% url 'course:course_video_list' course.id %}"><span>章节</span></a></li>
+                                       href="{% url 'blog:blog_tutorial_article_list' tutorial.id %}"><span>章节</span></a></li>
                                 <li><a id="commentOn" class="active"
-                                       href="{% url 'course:course_comments' course.id %}"><span>评论</span></a></li>
+                                       href="{% url 'blog:blog_tutorial_comments' tutorial.id %}"><span>评论</span></a></li>
                             </ul>
                         </div>
 

@@ -32,6 +32,9 @@ urlpatterns = [
     # 显示static下面的图片(生产环境中，都由前端服务器调用静态文件，本配置只为本地测试使用)
     # re_path(r'^static/(?P<path>.*)', serve, {"document_root": STATIC_ROOT }),
 
+    # 富文本相关url
+    path('ueditor/', include('DjangoUeditor.urls')),
+
     # path('', TemplateView.as_view(template_name=''), name='index'),
     path('', IndexView.as_view(), name='index'),
 
@@ -45,15 +48,9 @@ urlpatterns = [
     re_path('^reset/(?P<active_code>.*)/$', ResetView.as_view(), name='reset_pwd'),
     path('modify_pwd/', ModifyPwdView.as_view(), name='modify_pwd'),
 
-    # 富文本相关url
-    path('ueditor/', include('DjangoUeditor.urls')),
-
     # 机构 url 配置
     # path('org_list/', OrgView.as_view(), name='org_list')
     path('org/', include(('organization.urls', 'organization'), namespace='org')),
-
-    # 讲师 url 配置
-    # path('org/', include(('organization.urls', 'organization'), namespace='teacher')),
 
     # 课程 url 配置
     path('course/', include(('course.urls', 'course'), namespace='course')),
