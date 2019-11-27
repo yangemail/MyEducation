@@ -5,7 +5,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.views.generic.base import View
 
-from blog.models import Tutorial, Article
+from blog.models import Tutorial, Article, Category
 from operation.models import UserFavorite, UserTutorial, TutorialComment
 from pure_pagination import Paginator
 
@@ -17,7 +17,17 @@ class ArticleIndexView(View):
 
 class ArticleListView(View):
     def get(self, request):
-        return render(request, 'blog/article_list.html', {})
+        all_1level_category = Category.objects.all().filter(parent_category__isnull=True)
+
+        # 取出parent category id
+        p_category_id = request.GET.get('p_category', '')
+        if p_category_id:
+            p_category = Category.objects.get(id=int(p_category_id))
+
+        return render(request, 'blog/article_list.html', {
+            'all_1level_category': all_1level_category,
+            'p_category_id': p_category_id,
+        })
 
 
 class ArticleDetailView(View):
@@ -33,7 +43,17 @@ class ArticleDetailView(View):
         # 是否收藏机构
         has_fav_org = False
 
-        return render(request, 'blog/article_detail.html', {})
+        # 展示相关推荐文章
+        tag_list = article.tag
+        if tag_list:
+            related_articles = Article.objects.filter(Q(tag__in=tag_list) and ~Q(id=article.id))[:5]
+        else:
+            related_articles = []
+
+        return render(request, 'blog/article_detail.html', {
+            'article': article,
+            'related_articles': related_articles,
+        })
 
 
 class TutorialListView(View):
