@@ -16,17 +16,49 @@ class ArticleIndexView(View):
 
 
 class ArticleListView(View):
+    # 文章列表页
     def get(self, request):
-        all_1level_category = Category.objects.all().filter(parent_category__isnull=True)
+        # 全部父级分类
+        all_p_categories = Category.objects.all().filter(parent_category__isnull=True)
+        # 全部子级分类
+        all_c_categories = Category.objects.all().filter(parent_category__isnull=False)
+        # 全部文章
+        all_articles = Article.objects.all()
+
+        # 总点击次数
+        hot_articles = all_articles.order_by('-click_nums')[:10]
 
         # 取出parent category id
         p_category_id = request.GET.get('p_category', '')
         if p_category_id:
             p_category = Category.objects.get(id=int(p_category_id))
+            all_c_categories = all_c_categories.filter(parent_category=p_category)
+            all_articles = all_articles.filter(category__in=all_c_categories)
+
+        c_category_id = request.GET.get('c_category', '')
+        if c_category_id:
+            c_category = Category.objects.get(id=int(c_category_id))
+            all_articles = all_articles.filter(category=c_category)
+
+        # 计算实际返回文章数量
+        article_nums = all_articles.count()
+
+        # 对文章进行分页
+        try:
+            page = request.GET.get('page', 1)
+        except (EmptyPage, InvalidPage, PageNotAnInteger):
+            page = 1
+        p = Paginator(all_articles, per_page=2, request=request)
+        articles = p.page(page)
 
         return render(request, 'blog/article_list.html', {
-            'all_1level_category': all_1level_category,
+            'all_p_categories': all_p_categories,
             'p_category_id': p_category_id,
+            'all_c_categories': all_c_categories,
+            'c_category_id': c_category_id,
+            'all_articles': articles,
+            'article_nums': article_nums,
+            'hot_articles': hot_articles,
         })
 
 

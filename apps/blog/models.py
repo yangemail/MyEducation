@@ -118,7 +118,8 @@ class Article(models.Model):
                            filePath="articles/ueditor/",
                            upload_settings={'imageMaxSize': 1204000}, settings={}, command=None, blank=True,
                            default='', verbose_name="文章详情")
-    click_nums = models.IntegerField(default=0, verbose_name='點擊次數')
+    image = models.ImageField(upload_to='article/%Y/%m', max_length=200, null=True, blank=True, verbose_name='封面图')
+    click_nums = models.IntegerField(default=0, verbose_name='点击次数')
     is_recommend = models.BooleanField(default=False, verbose_name='是否推薦（文章）')
     # 用戶外鍵（文章由用戶添加） - 文章作者
     # user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='多用戶添加外鍵')

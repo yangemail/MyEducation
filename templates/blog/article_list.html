@@ -7,7 +7,7 @@
         <div class="wp">
             <ul class="crumbs">
                 <li><a href="/">首页</a>></li>
-                <li>经典教程</li>
+                <li>经典文章</li>
             </ul>
         </div>
     </section>
@@ -21,38 +21,33 @@
                 <div class="listoptions">
                     <ul>
                         <li>
-                            <h2>教程分类</h2>
+                            <h2>方向</h2>
                             <div class="cont">
                                 <a href="?c_category={{ city_id }}"><span
                                         class="{% ifequal p_category_id '' %}active2{% endifequal %}">全部</span></a>
-{#                                <a href="?ct=pxjg&city={{ city_id }}"><span#}
-{#                                        class="{% ifequal category 'pxjg' %}active2{% endifequal %}">培训机构</span></a>#}
-{#                                <a href="?ct=gx&city={{ city_id }}"><span#}
-{#                                        class="{% ifequal category 'gx' %}active2{% endifequal %}">高校</span></a>#}
-{#                                <a href="?ct=gr&city={{ city_id }}"><span#}
-{#                                        class="{% ifequal category 'gr' %}active2{% endifequal %}">个人</span></a>#}
-
-                                {% for p_category in all_1level_category %}
-                                    <a href="?p_category={{ p_category.id }}&c_category={{ c_category_id }}"><span
-                                        class="{% ifequal p_category_id p_category.id %}active2{% endifequal %}">{{ p_category.name }}</span></a>
+                                {% for p_category in all_p_categories %}
+                                    <a href="?p_category={{ p_category.id }}&c_category={{ c_category_id }}">
+                                        <span class="{% ifequal p_category_id p_category.id|stringformat:'i' %}active2{% endifequal %}">{{ p_category.name }}</span>
+                                    </a>
                                 {% endfor %}
                             </div>
                         </li>
                         <li>
-                            <h2>所在地区</h2>
+                            <h2>技术栈</h2>
                             <div class="more">更多</div>
                             <div class="cont">
-                                <a href="?ct={{ category }}"><span
-                                        class="{% ifequal city_id '' %}active2{% endifequal %}">全部</span></a>
-                                {% for city in all_cities %}
-                                    <a href="?city={{ city.id }}&ct={{ category }}"><span
-                                            class="{% ifequal city_id city.id|stringformat:'i' %}active2{% endifequal %}">{{ city.name }}</span></a>
+                                <a href="?p_category={{ p_category_id }}"><span
+                                        class="{% ifequal c_category_id '' %}active2{% endifequal %}">全部</span></a>
+                                {% for c_category in all_c_categories %}
+                                    <a href="?p_category={{ p_category_id }}&c_category={{ c_category.id }}">
+                                        <span class="{% ifequal c_category_id c_category.id|stringformat:'i' %}active2{% endifequal %}">{{ c_category.name }}</span>
+                                    </a>
                                 {% endfor %}
                             </div>
                         </li>
                     </ul>
                 </div>
-                <div class="all">共<span class="key">{{ org_nums }}</span>家</div>
+                <div class="all">共<span class="key">{{ article_nums }}</span>篇</div>
                 <div class="butler_list company list">
                     <div class="layout">
                         <div class="head">
@@ -66,18 +61,18 @@
                             </ul>
                         </div>
                         {#            {% for course_org in all_orgs.object_list %}#}
-                        {% for course_org in all_orgs %}
+                        {% for article in all_articles.object_list %}
                             <dl class="des difdes">
                                 <dt>
-                                    <a href="{% url 'org:org_home' course_org.id %}">
+                                    <a href="{% url 'blog:blog_article_detail' article.id %}">
                                         <img id="logo" width="200" height="120" class="scrollLoading"
-                                             data-url="{{ MEDIA_URL }}{{ course_org.image }}"/>
+                                             data-url="{{ MEDIA_URL }}{{ article.image }}"/>
                                     </a>
                                 </dt>
                                 <dd>
                                     <div class="clearfix">
-                                        <a href="{% url 'org:org_home' course_org.id %}">
-                                            <h1>{{ course_org.name }}</h1>
+                                        <a href="{% url 'blog:blog_article_detail' article.id %}">
+                                            <h1>{{ article.title }}</h1>
                                             <div class="pic fl">
 
                                                 <img src="{% static 'images/authentication.png' %}"/>
@@ -106,13 +101,13 @@
                     </div>
                     <div class="pageturn">
                         <ul class="pagelist">
-                            {% if all_orgs.has_previous %}
-                                <li class="long"><a href="?{{ all_orgs.previous_page_number.querystring }}">上一页</a></li>
+                            {% if all_articles.has_previous %}
+                                <li class="long"><a href="?{{ all_articles.previous_page_number.querystring }}">上一页</a></li>
                             {% endif %}
 
-                            {% for page in all_orgs.pages %}
+                            {% for page in all_articles.pages %}
                                 {% if page %}
-                                    {% ifequal page all_orgs.number %}
+                                    {% ifequal page all_articles.number %}
                                         <li class="active"><a href="?{{ page.querystring }}">{{ page }}</a></li>
                                     {% else %}
                                         <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
@@ -122,38 +117,36 @@
                                 {% endif %}
                             {% endfor %}
 
-                            {% if all_orgs.has_next %}
-                                <li class="long"><a href="?{{ all_orgs.next_page_number.querystring }}">下一页</a></li>
+                            {% if all_articles.has_next %}
+                                <li class="long"><a href="?{{ all_articles.next_page_number.querystring }}">下一页</a></li>
                             {% endif %}
 
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="right companyright">
-                <div class="head">我要学习</div>
-                <form class="rightform" id="jsStayForm">
-                    <div>
-                        <img src="{% static 'images/rightform1.png' %}"/>
-                        <input type="text" name="name" id="companyName" placeholder="名字" maxlength="25"/>
-                    </div>
-                    <div>
-                        <img src="{% static 'images/rightform2.png' %}"/>
-                        <input type="text" name="mobile" id="companyMobile" placeholder="联系电话"/>
-                    </div>
-                    <div>
-                        <img src="{% static 'images/rightform3.png' %}"/>
-                        <input type="text" name="course_name" id="companyAddress" placeholder="课程名" maxlength="50"/>
-                    </div>
-                    <p class="error company-tips" id="jsCompanyTips"></p>
-                    <input class="btn" type="text" id="jsStayBtn" value="立即咨询 >"/>
-                    {% csrf_token %}
-                </form>
-            </div>
-
+{#            <div class="right companyright">#}
+{#                <div class="head">我要学习</div>#}
+{#                <form class="rightform" id="jsStayForm">#}
+{#                    <div>#}
+{#                        <img src="{% static 'images/rightform1.png' %}"/>#}
+{#                        <input type="text" name="name" id="companyName" placeholder="名字" maxlength="25"/>#}
+{#                    </div>#}
+{#                    <div>#}
+{#                        <img src="{% static 'images/rightform2.png' %}"/>#}
+{#                        <input type="text" name="mobile" id="companyMobile" placeholder="联系电话"/>#}
+{#                    </div>#}
+{#                    <div>#}
+{#                        <img src="{% static 'images/rightform3.png' %}"/>#}
+{#                        <input type="text" name="course_name" id="companyAddress" placeholder="课程名" maxlength="50"/>#}
+{#                    </div>#}
+{#                    <p class="error company-tips" id="jsCompanyTips"></p>#}
+{#                    <input class="btn" type="text" id="jsStayBtn" value="立即咨询 >"/>#}
+{#                    {% csrf_token %}#}
+{#                </form>#}
+{#            </div>#}
             <div class="right companyrank layout">
-                <div class="head">授课机构排名</div>
-
+                <div class="head">最新文章</div>
                 {% for current_org in hot_orgs %}
                     <dl class="des">
                         <dt class="num fl">{{ forloop.counter }}</dt>
@@ -163,8 +156,30 @@
                         </dd>
                     </dl>
                 {% endfor %}
-
-
+            </div>
+            <div class="right companyrank layout">
+                <div class="head">月点击量排名</div>
+                {% for current_org in hot_orgs %}
+                    <dl class="des">
+                        <dt class="num fl">{{ forloop.counter }}</dt>
+                        <dd>
+                            <a href="/company/2/"><h1>{{ current_org.name }}</h1></a>
+                            <p>{{ current_org.address }}</p>
+                        </dd>
+                    </dl>
+                {% endfor %}
+            </div>
+            <div class="right companyrank layout">
+                <div class="head">总点击量排名</div>
+                {% for hot_article in hot_articles %}
+                    <dl class="des">
+                        <dt class="num fl">{{ forloop.counter }}</dt>
+                        <dd>
+                            <a href="/company/2/"><h1>{{ hot_article.title }}</h1></a>
+                            <p>{{ hot_article.click_nums }}</p>
+                        </dd>
+                    </dl>
+                {% endfor %}
             </div>
         </div>
     </section>

@@ -84,7 +84,7 @@
                         <ul>
                             <li {% if request.path == '/' %}class="active" {% endif %}><a
                                     href="{% url 'index' %}">首页</a></li>
-                            <li {% if request.path|slice:'17' == '/blog/article/list' %}class="active"{% endif %}>
+                            <li {% if request.path|slice:'18' == '/blog/article/list' %}class="active"{% endif %}>
                                 <a href="{% url 'blog:blog_article_list' %}">文章</a>
                             </li>
                             <li {% if request.path|slice:'19' == '/blog/tutorial/list' %}class="active"{% endif %}>
