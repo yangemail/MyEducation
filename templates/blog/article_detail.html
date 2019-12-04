@@ -7,8 +7,8 @@
         <div class="wp">
             <div class="crumbs">
                 <ul>
-                    <li><a href="/">首页</a>></li>
-                    <li><a href="{% url 'blog:blog_article_list' %}">文章列表</a>></li>
+                    <li><a href="/">Index</a>></li>
+                    <li><a href="{% url 'blog:blog_article_list' %}">Article List</a></li>
                     <li>文章详情</li>
                 </ul>
             </div>
@@ -29,31 +29,31 @@
     <section>
         <div class="wp">
             <div class="groupPurchase_detail detail">
-                <div class="toppro">
-                    <div class="left">
+                <div class="toppro" style="height: 360px">
+                    <div class="left" style="height: 310px">
                         <div class="picbox">
-                            <div class="tb-booth tb-pic">
-                                <img width="440" height="445" src="{{ MEDIA_URL }}{{ article.image }}" class="jqzoom"/>
+                            <div class="tb-booth tb-pic" style="height: 310px">
+                                <img width="440" height="310" src="{{ MEDIA_URL }}{{ article.image }}" class="jqzoom"/>
                             </div>
 
                         </div>
                         <div class="des">
-                            <h1 title="django 从入门到精通体验开始了">{{ article.title }}</h1>
+                            <h1 title="{{ article.title }}">{{ article.title }}</h1>
                             <span class="key">{{ article.desc }}</span>
                             <div class="prize">
-                                <span class="fl">难度：<i class="key">{{ article.get_degree_display }}</i></span>
-                                <span class="fr">学习人数：{{ article.students }}</span>
+                                <span class="fl">By {{ article.teacher.name }} | {{ article.created_time|date:"F d, Y" }} | Viewed: {{ article.click_nums }} | Pv: +533 pv/w</span>
+{#                                <span class="fr">学习人数：{{ article.students }}</span>#}
                             </div>
                             <ul class="parameter">
-                                <li><span
-                                        class="pram word3">时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长：</span><span>{{ article.learn_times }}</span>
+{#                                <li><span#}
+{#                                        class="pram word3">时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;长：</span><span>{{ article.learn_times }}</span>#}
+{#                                </li>#}
+{#                                <li><span#}
+{#                                        class="pram word3">章&nbsp;节&nbsp;数：</span><span>{{ article.get_articles_count }}</span>#}
+{#                                </li>#}
+                                <li><span class="pram word3">Categories: </span><span title="">{{ article.category }}</span>
                                 </li>
-                                <li><span
-                                        class="pram word3">章&nbsp;节&nbsp;数：</span><span>{{ article.get_articles_count }}</span>
-                                </li>
-                                <li><span class="pram word3">课程类别：</span><span title="">{{ article.category }}</span>
-                                </li>
-                                <li class="piclist"><span class="pram word4">学习用户：</span>
+                                <li class="piclist"><span class="pram word4">Bookmarks: </span>
                                     {% for user_course in article.get_learn_users %}
                                         <span class="pic"><img width="40" height="40" src="
                                                 {{ MEDIA_URL }}{{ user_course.user.avatar }}"/></span>
@@ -90,21 +90,23 @@
 
                     <div class="right">
                         <div class="head">
-                            <h1>教程目录</h1>
-                            <p>世界名校，课程权威</p>
+                            <h1>Tutorial</h1>
+                            <p>This article is related:</p>
                         </div>
                         <div class="pic">
                             <a href="/company/14/">
-                                <img width="150" height="80" src="{{ MEDIA_URL }}{{ article.course_org.image }}"/>
+                                <img width="150" height="80" src="{{ MEDIA_URL }}{{ tutorial.image }}"/>
                             </a>
                         </div>
                         <a href="/company/14/">
-                            <h2 class="center" title="清华大学">{{ article.course_org.name }}</h2>
+                            <h2 class="center" title="清华大学">{{ tutorial.title }} &&&</h2>
                         </a>
-                        <div class="btn  notlogin
-					     " data-favid="14" id="jsRightBtn">
+                        <div class="btn  notlogin" data-favid="14" id="jsRightBtn">
                             {% if has_fav_org %}已收藏{% else %}收藏{% endif %}
                         </div>
+
+
+
                         <div class="clear">
                             <ul>
                                 <li>
@@ -169,23 +171,23 @@
                                 </ul>
                             </div>
                             <div class="box mb40">
-                                <h4>讲师提示</h4>
-                                <div class="teacher-info">
-                                    <a href="/u/315464/courses?sort=publish" target="_blank">
-                                        <img src='{{ MEDIA_URL }}{{ article.teacher.avatar }}' width='80' height='80'/>
-                                    </a>
-                                    <span class="tit">
-          <a href="/u/315464/courses?sort=publish" target="_blank">{{ article.teacher.name }}</a>
-        </span>
-                                    <span class="job">{{ article.teacher.work_position }}</span>
-                                </div>
+                                <h4>Related</h4>
+{#                                <div class="teacher-info">#}
+{#                                    <a href="/u/315464/courses?sort=publish" target="_blank">#}
+{#                                        <img src='{{ MEDIA_URL }}{{ article.teacher.avatar }}' width='80' height='80'/>#}
+{#                                    </a>#}
+{#                                    <span class="tit">#}
+{#          <a href="/u/315464/courses?sort=publish" target="_blank">{{ article.teacher.name }}</a>#}
+{#        </span>#}
+{#                                    <span class="job">{{ article.teacher.work_position }}</span>#}
+{#                                </div>#}
                                 <div class="course-info-tip">
                                     <dl class="first">
-                                        <dt>课程须知</dt>
+                                        <dt>References</dt>
                                         <dd class="autowrap">{{ article.youneed_know }}</dd>
                                     </dl>
                                     <dl>
-                                        <dt>老师告诉你能学到什么？</dt>
+                                        <dt>Tags</dt>
                                         <dd class="autowrap">{{ article.teacher_tell }}</dd>
                                     </dl>
                                 </div>
@@ -213,19 +215,22 @@
                                         {#                                            {% endfor %}#}
                                         {#                                        </ul>#}
                                         {% for related_article in related_articles %}
+
                                             <dl>
                                                 <dt>
                                                     <a target="_blank" href="">
-                                                        <img width="240" height="220" class="scrollLoading"
-                                                             src="{{ MEDIA_URL }}{{ related_article.image }}"/>
+{#                                                        <img width="240" height="220" class="scrollLoading"#}
+{#                                                             src="{{ MEDIA_URL }}{{ related_article.image }}"/>#}
+                                                        <span>{{ related_article.title }}</span>
                                                     </a>
                                                 </dt>
                                                 <dd>
                                                     <a target="_blank" href=""><h2> {{ related_article.name }}</h2></a>
-                                                    <span class="fl">学习时长：<i
-                                                            class="key">{{ related_article.learn_times }}</i></span>
+                                                    <span class="fl">Viewed: <i
+                                                            class="key">{{ related_article.click_nums }}</i></span>
                                                 </dd>
                                             </dl>
+                                            <br/>
                                         {% endfor %}
                                     </div>
                                     <div class="cp-tab-pannel js-comp-tab-pannel" data-pannel="plan">

@@ -1,6 +1,7 @@
 from django.db import models
 
 from blog.models import Tutorial, Article
+from organization.models import Teacher
 from user.models import UserProfile
 from course.models import Course
 
@@ -128,3 +129,14 @@ class UserTutorial(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
+class UserTeacher(models.Model):
+    """
+    用户、教师对应表
+    通过此表，教师可实现登录
+    用户通过此表成为教师
+    """
+    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, null=True, blank=True, verbose_name="可登录用户信息")
+    teacher = models.OneToOneField(Teacher, on_delete=models.CASCADE, null=True, blank=True, verbose_name="教师信息")
+    created_time = models.DateTimeField(auto_now_add=True)

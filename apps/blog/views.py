@@ -1,15 +1,41 @@
+import logging
+
 from django.core.paginator import EmptyPage, InvalidPage, PageNotAnInteger
 from django.db.models import Q
 from django.shortcuts import render
 
-# Create your views here.
 from django.views.generic.base import View
+from django.conf import settings
 
 from blog.models import Tutorial, Article, Category
 from operation.models import UserFavorite, UserTutorial, TutorialComment
 from pure_pagination import Paginator
 
+logger = logging.getLogger('blog.views')
 
+
+def global_settings(request):
+    # 站点基本信息
+    SITE_URL = settings.SITE_URL
+    SITE_NAME = settings.SITE_NAME
+    SITE_DESC = settings.SITE_DESC
+    # WEIBO_SINA = settings.WEIBO_SINA
+    # WEIBO_TENCENT = settings.WEIBO_TENCENT
+    # PRO_RSS = settings.PRO_RSS
+    # PRO_EMAIL = settings.PRO_EMAIL
+    # 分类信息获取（导航数据）
+    category_list = Category.objects.all()
+    # 文章归档
+    archive_list = Article.objects.distinct_date()
+    # 广告数据
+    # 标签云数据
+    # 友情链接数据
+    # 文章排行榜数据（浏览量 和 站长推荐）
+    # 评论排行
+    return locals()
+
+
+# Create your views here.
 class ArticleIndexView(View):
     def get(self, request):
         return render(request, 'blog/article_index.html', {})
@@ -26,7 +52,8 @@ class ArticleListView(View):
         all_articles = Article.objects.all()
 
         # 总点击次数
-        hot_articles = all_articles.order_by('-click_nums')[:10]
+        hot_articles = all_articles.order_by('-click_nums')[:5]
+        latest_articles = all_articles.order_by('-created_time')[:5]
 
         # 取出parent category id
         p_category_id = request.GET.get('p_category', '')
@@ -59,6 +86,7 @@ class ArticleListView(View):
             'all_articles': articles,
             'article_nums': article_nums,
             'hot_articles': hot_articles,
+            'latest_articles': latest_articles,
         })
 
 
@@ -72,8 +100,12 @@ class ArticleDetailView(View):
 
         # 是否收藏文章
         has_fav_article = False
-        # 是否收藏机构
+        # 是否收藏教程
         has_fav_org = False
+
+        # 展示相关教程
+        tutorial_list = Tutorial.objects.filter(section__article=article)
+        tutorial = tutorial_list[0]
 
         # 展示相关推荐文章
         tag_list = article.tag
@@ -84,6 +116,7 @@ class ArticleDetailView(View):
 
         return render(request, 'blog/article_detail.html', {
             'article': article,
+            'tutorial': tutorial,
             'related_articles': related_articles,
         })
 

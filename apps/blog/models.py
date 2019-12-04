@@ -47,7 +47,7 @@ class Category(models.Model):
 
 class Tutorial(models.Model):
     tutorial_org = models.ForeignKey(CourseOrganization, on_delete=models.SET_NULL, null=True, blank=True,
-                                   verbose_name='教程机构')
+                                     verbose_name='教程机构')
     title = models.CharField(max_length=50, verbose_name='教程标题')
     desc = models.CharField(max_length=300, verbose_name='课程描述')  # 用于SEO
     detail = UEditorField(width=600, height=300, toolbars='full', imagePath="tutorials/ueditor/",
@@ -70,6 +70,7 @@ class Tutorial(models.Model):
         verbose_name = '教程'
         verbose_name_plural = verbose_name
 
+    # 获取本Tutorial中，所有Article
     def get_articles(self):
         article_list = []
         for section in self.section_set.all():
@@ -77,6 +78,7 @@ class Tutorial(models.Model):
                 article_list.append(article)
         return article_list
 
+    # 获取本Tutorial中，所有Article数量
     def get_articles_count(self):
         return len(self.get_articles())
 
@@ -125,9 +127,9 @@ class Article(models.Model):
     # user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='多用戶添加外鍵')
     video = models.ForeignKey(Video, on_delete=models.SET_NULL, null=True, blank=True,
                               verbose_name='文章視頻')  # 多篇文章可能對應一個視頻
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True,
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name="article_cat",
                                  verbose_name='教程分类')  # 教程分类
-    section = models.ManyToManyField(Section, verbose_name='章节外键-多对多')
+    section = models.ManyToManyField(Section, verbose_name='章节外键-多对多', )
     # 教師外鍵（文章由教師添加） - 文章作者
     teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='授课教师外键')
     tag = models.ManyToManyField(Tag, verbose_name='文章标签')  # 課程與標籤是多對多的關係
@@ -142,4 +144,17 @@ class Article(models.Model):
         return self.title
 
 
+# 文章上傳資源（文章相關文件）
+class ArticleResource(models.Model):
+    name = models.CharField(max_length=100, verbose_name='资源名称')
+    download = models.FileField(upload_to='article/resource/%Y/%m', max_length=100, verbose_name='资源文件')
+    article = models.ForeignKey(Article, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='文章外键')
+    created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    last_modified_time = models.DateTimeField(auto_now=True, verbose_name='最后修改时间')
 
+    class Meta:
+        verbose_name = '文章资源'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name

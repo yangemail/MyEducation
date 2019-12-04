@@ -85,7 +85,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 # Customized
-                'django.template.context_processors.media', # use "media" folder in Django 2
+                'django.template.context_processors.media', # 在Django2中使用"media"文件夹
             ],
         },
     },
@@ -104,7 +104,7 @@ DATABASES = {
         'PASSWORD': 'jee911jee',
         'HOST': '127.0.0.1',
         'PORT': '3306',
-        # 'OPTIONS': {'init_command': 'SET storage_engine=INNODB;'}, # 如果是MySQL 5.7 和以上版本
+        # 'OPTIONS': {'init_command': 'SET default_storage_engine=INNODB;'}, # 如果是MySQL 5.7 和以上版本
         'OPTIONS': {
             'init_command': "SET default_storage_engine=INNODB;"
                             "SET sql_mode='STRICT_TRANS_TABLES';"
@@ -135,12 +135,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-# LANGUAGE_CODE = 'en-us' # 英文
+LANGUAGE_CODE = 'en-us' # 英文
 # LANGUAGE_CODE = 'zh-Hant' # 繁体中文
-LANGUAGE_CODE = 'zh-hans' # 简体中文
+# LANGUAGE_CODE = 'zh-hans' # 简体中文
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
 # TIME_ZONE = 'Asia/Shanghai'
+TIME_ZONE = 'US/Pacific'
 
 USE_I18N = True
 
@@ -178,6 +179,15 @@ PAGINATION_SETTINGS = {
     'SHOW_FIRST_PAGE_WHEN_INVALID': True,
     # 无效页面时，显示第一页而不是404页面
 }
+
+# 网站的基本信息配置
+SITE_URL = 'http://localhost:8000/'
+SITE_NAME = 'Jake Tech Lab'
+SITE_DESC = '专注Python开发，欢迎和大家交流'
+WEIBO_SINA = 'http://weibo.sina.com/yopoing'
+WEIBO_TENCENT = 'http://weibo.qq.com/yopoing'
+PRO_RSS = 'http://ww2w.baidu.com'
+PRO_EMAIL = 'yopoing@vip.qq.com'
 
 # 自定义日志输出信息
 LOGGING = {
