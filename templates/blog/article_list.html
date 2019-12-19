@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-{% block title %}Articles{% endblock %}
+{% block title %}Articles - {{ SITE_NAME }}{% endblock %}
 {% load staticfiles %}
 
 {% block custom_bread %}
@@ -159,14 +159,14 @@
                         <dt class="num fl">{{ forloop.counter }}</dt>
                         <dd>
                             <a href="/company/2/"><h3>{{ latest_article.title }}</h3></a>
-                            <p>Click Count: {{ latest_article.click_nums }}</p>
+                            <p>Viewed: {{ latest_article.click_nums }}</p>
                             <p>Added on: {{ latest_article.created_time|date:"M/d Y" }}</p>
                         </dd>
                     </dl>
                 {% endfor %}
             </div>
             <div class="right companyrank layout">
-                <div class="head">Highest Viewed in this month</div>
+                <div class="head">Most Viewed in this month</div>
                 {% for hot_article in hot_articles %}
                     <dl class="des">
                         <dt class="num fl">{{ forloop.counter }}</dt>

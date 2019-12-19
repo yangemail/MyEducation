@@ -22,8 +22,8 @@ class Tag(models.Model):
 
 class Category(models.Model):
     CATEGORY_TYPE = (
-        (1, '方向'),  # 例如：前端开发,后端开发,移动开发,计算机基础,前沿技术,云计算&大数据,运维&测试,数据库,UI设计&多媒体,游戏，等
-        (2, '技术栈'),  # 例如：计算机网络，HTML/CSS，JavaScript，Vue.js，React.JS，Angular，Node.js，jQuery，小程序，前端工具，Java，等
+        (1, 'Area'),  # 例如：前端开发,后端开发,移动开发,计算机基础,前沿技术,云计算&大数据,运维&测试,数据库,UI设计&多媒体,游戏，等
+        (2, 'Technology stack'),  # 例如：计算机网络，HTML/CSS，JavaScript，Vue.js，React.JS，Angular，Node.js，jQuery，小程序，前端工具，Java，等
         # (3, '三级目录'), # 暂时不需要
     )
     name = models.CharField(max_length=30, default='', verbose_name='分类名称')
@@ -35,6 +35,10 @@ class Category(models.Model):
     index = models.PositiveSmallIntegerField(default=999, verbose_name='显示顺序（从小到大）')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='添加时间')
     last_modified_time = models.DateTimeField(auto_now=True, verbose_name='修改时间')
+
+    def get_area_label(self):
+        print(Category.CATEGORY_TYPE)
+        return Category.CATEGORY_TYPE[1]
 
     class Meta:
         verbose_name = '分类'

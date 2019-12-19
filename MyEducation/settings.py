@@ -86,6 +86,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # Customized
                 'django.template.context_processors.media', # 在Django2中使用"media"文件夹
+                'blog.views.global_settings',
             ],
         },
     },

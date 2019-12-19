@@ -3,36 +3,20 @@ import logging
 from django.core.paginator import EmptyPage, InvalidPage, PageNotAnInteger
 from django.db.models import Q
 from django.shortcuts import render
-
 from django.views.generic.base import View
 from django.conf import settings
+from pure_pagination import Paginator
 
 from blog.models import Tutorial, Article, Category
 from operation.models import UserFavorite, UserTutorial, TutorialComment
-from pure_pagination import Paginator
+
 
 logger = logging.getLogger('blog.views')
 
 
 def global_settings(request):
-    # 站点基本信息
-    SITE_URL = settings.SITE_URL
-    SITE_NAME = settings.SITE_NAME
-    SITE_DESC = settings.SITE_DESC
-    # WEIBO_SINA = settings.WEIBO_SINA
-    # WEIBO_TENCENT = settings.WEIBO_TENCENT
-    # PRO_RSS = settings.PRO_RSS
-    # PRO_EMAIL = settings.PRO_EMAIL
-    # 分类信息获取（导航数据）
-    category_list = Category.objects.all()
-    # 文章归档
-    archive_list = Article.objects.distinct_date()
-    # 广告数据
-    # 标签云数据
-    # 友情链接数据
-    # 文章排行榜数据（浏览量 和 站长推荐）
-    # 评论排行
-    return locals()
+    return {"SITE_NAME": settings.SITE_NAME,
+            "SITE_DESC": settings.SITE_DESC}
 
 
 # Create your views here.
@@ -75,7 +59,7 @@ class ArticleListView(View):
             page = request.GET.get('page', 1)
         except (EmptyPage, InvalidPage, PageNotAnInteger):
             page = 1
-        p = Paginator(all_articles, per_page=2, request=request)
+        p = Paginator(all_articles, per_page=5, request=request)
         articles = p.page(page)
 
         return render(request, 'blog/article_list.html', {
