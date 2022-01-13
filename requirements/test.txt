@@ -13,7 +13,7 @@ MarkupPy==1.14
 mysqlclient==1.4.5
 odfpy==1.4.0
 openpyxl==3.0.0
-Pillow==6.2.1
+Pillow==9.0.0
 pytz==2019.3
 PyYAML==5.1.2
 six==1.13.0
